@@ -40,6 +40,10 @@ public class CarController : MonoBehaviour
     public AudioSource engineSound, driftingSound;
     public float driftingFadeSpeed;
 
+    //  Lap Record and Checkpoint Record
+    private int nextCheckpoint;
+    public int currentLap;
+
     //  Start is called before the first frame update
     void Start()
     {
@@ -67,7 +71,8 @@ public class CarController : MonoBehaviour
         //  horizontal movement control
         //  only allows horizontal direction of the car to change if the car is on the ground and there is a forward speed
         turnInput = Input.GetAxis("Horizontal");
-        /*
+
+        /*  Current segment of code migrated to FixedUpdate()
         if (grounded && Input.GetAxis("Vertical") != 0) 
         {
             //  Time.deltaTime is used such that the combination of turnStrength in different framerate is consistent
@@ -125,6 +130,7 @@ public class CarController : MonoBehaviour
             engineSound.pitch = 1f + (theRB.velocity.magnitude / maxSpeed) * 2f; 
         }
 
+        //  Setting the drifting sound of the car to adjust according to the current speed of the car
         if (driftingSound != null)
         {   
             //  drifting sound should only exist on the ground
@@ -146,6 +152,7 @@ public class CarController : MonoBehaviour
         }
     }
 
+    //  Update without reference to framerate
     private void FixedUpdate()
     {
         grounded = false;
@@ -201,7 +208,7 @@ public class CarController : MonoBehaviour
             theRB.velocity = theRB.velocity.normalized * maxSpeed;
         }
 
-        Debug.Log(theRB.velocity.magnitude);
+        //  Debug.Log(theRB.velocity.magnitude);
 
         transform.position = theRB.position;
 
@@ -211,6 +218,22 @@ public class CarController : MonoBehaviour
             //  Mathf.Sign(speedInput) -> +ve is our speedInput is postive, else -ve -> allows steering to be intuitive to control
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles
                 + new Vector3(0f, turnInput * turnStrength * Time.deltaTime * Mathf.Sign(speedInput) * (theRB.velocity.magnitude / maxSpeed), 0f));
+        }
+    }
+
+    //  CheckpointHit is a function that updates the Lap and Checkpoint
+    //  record when the car hit the checkpoints
+    public void CheckpointHit(int cpNumber) 
+    {
+        if (cpNumber == nextCheckpoint) 
+        {
+            nextCheckpoint++;
+
+            if (nextCheckpoint == RaceManager.instance.allCheckPoints.Length) 
+            {
+                nextCheckpoint = 0;
+                currentLap++;
+            }
         }
     }
 }
