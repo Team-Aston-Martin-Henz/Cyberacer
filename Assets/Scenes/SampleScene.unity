@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 230572741}
   - component: {fileID: 230572740}
   m_Layer: 0
-  m_Name: Particle System (3)
+  m_Name: Particle System (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5162,11 +5162,11 @@ MonoBehaviour:
   turnStrength: 180
   groundRayPoint1: {fileID: 1375014838}
   groundRayPoint2: {fileID: 1630420821}
-  whatIsGround:
+  groundLayer:
     serializedVersion: 2
     m_Bits: 64
   groundrayLength: 0.75
-  gravityMod: 10
+  gravity: -10
   leftFrontWheel: {fileID: 748791283}
   rightFrontWheel: {fileID: 1087603870}
   maxWheelTurn: 25
@@ -5175,8 +5175,8 @@ MonoBehaviour:
   - {fileID: 1584336284}
   - {fileID: 1175328945}
   - {fileID: 230572741}
-  maxEmission: 25
-  emissionFadeSpeed: 50
+  maxEmissionRate: 25
+  emissionFadeRate: 20
   engineSound: {fileID: 1929709872}
   driftingSound: {fileID: 1348180452}
   driftingFadeSpeed: 2
@@ -5931,7 +5931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1049585558}
   m_Layer: 0
-  m_Name: Particles
+  m_Name: Dust Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6099,7 +6099,7 @@ GameObject:
   - component: {fileID: 1175328945}
   - component: {fileID: 1175328944}
   m_Layer: 0
-  m_Name: Particle System (2)
+  m_Name: Particle System (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11660,7 +11660,7 @@ GameObject:
   - component: {fileID: 1584336284}
   - component: {fileID: 1584336283}
   m_Layer: 0
-  m_Name: Particle System (1)
+  m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16581,7 +16581,7 @@ GameObject:
   - component: {fileID: 1737392463}
   - component: {fileID: 1737392462}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
