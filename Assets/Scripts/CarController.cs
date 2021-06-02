@@ -52,6 +52,22 @@ public class CarController : MonoBehaviour
 
     void Update()
     {
+        GetSpeedAndTurn();
+        UpdateWheels();
+        UpdateDustTrail();
+        UpdateSound();
+    }
+
+
+    private void FixedUpdate()
+    {
+        UpdateInclination();
+        UpdateCarPosition();
+    }
+    
+
+    private void GetSpeedAndTurn()
+    {
         float speedInput = Input.GetAxis("Vertical");
         float turnInput = Input.GetAxis("Horizontal");
 
@@ -60,84 +76,8 @@ public class CarController : MonoBehaviour
             ? speedInput * forwardAccel
             : speedInput * reverseAccel;
         turn = turnInput;
-
-        UpdateWheels();
-        UpdateDustTrail();
-
-
-        // set engine sound according to speed of the car
-        if (engineSound != null) 
-        {
-            engineSound.pitch = 1f + (rb.velocity.magnitude / maxSpeed) * 2f; // adjust if needed
-        }
-
-        if (driftingSound != null)
-        {   
-            //  drifting sound should only exist on the ground
-            if (isGrounded)
-            {
-                if (Mathf.Abs(turn) > .5f)
-                {
-                    driftingSound.volume = 1f;
-                }
-                else
-                {
-                    driftingSound.volume = Mathf.MoveTowards(driftingSound.volume, 0f, driftingFadeRate * Time.deltaTime);
-                }
-            }
-            else 
-            {
-                driftingSound.volume = 0;
-            }
-        }
     }
 
-
-    private void FixedUpdate()
-    {
-        UpdateInclination();
-
-        //  Acceleration of the car only allowed if we are on the ground
-        if (isGrounded) 
-        {
-            //  the "Sphere"'s drag to be equal to that of the stored dragOnGround value
-            rb.drag = dragOnGround;
-            
-            //  -> provide a force of 100f unit on "Sphere" in accordance to timestep
-            //  -> and always in forward direction
-            rb.AddForce(transform.forward * speed * 1000f);
-        } else
-        {
-            //  aero-drag
-            rb.drag = .1f;
-
-            //  intensify gravity so that car can fall down more naturally
-            rb.AddForce(Vector3.up * gravity * 100f);
-        }
-
-        //  -> setting limit on maxSpeed of the vehicle
-        if (rb.velocity.magnitude > maxSpeed) 
-        {
-            rb.velocity = rb.velocity.normalized * maxSpeed;
-        }
-
-        // Debug.Log(rb.velocity.magnitude);
-
-        transform.position = rb.position;
-
-
-        // left & right movement
-        if (isGrounded && speed != 0)
-        {
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles +
-                new Vector3(
-                    0f,
-                    turn * turnStrength * Time.deltaTime * Mathf.Sign(speed) * (rb.velocity.magnitude / maxSpeed),
-                    0f)
-                );
-        }
-    }
-    
 
     private void UpdateWheels()
     {
@@ -184,6 +124,30 @@ public class CarController : MonoBehaviour
     }
 
 
+    private void UpdateSound()
+    {
+        // set engine sound according to speed of the car
+        if (engineSound != null) 
+        {
+            engineSound.pitch = 1f + (rb.velocity.magnitude / maxSpeed) * 2f; // adjust if needed
+        }
+
+        if (driftingSound != null)
+        {   
+            // drifting should only happen while car is on the ground
+            if (!isGrounded) return;
+
+            if (Mathf.Abs(turn) > .5f)
+            {
+                driftingSound.volume = 1f;
+            } else
+            {
+                driftingSound.volume = Mathf.MoveTowards(driftingSound.volume, 0f, driftingFadeRate * Time.deltaTime);
+            }
+        }
+    }
+
+
     private void UpdateInclination()
     {
         isGrounded = false;
@@ -209,5 +173,42 @@ public class CarController : MonoBehaviour
         {
             transform.rotation = Quaternion.FromToRotation(transform.up, normalTarget) * transform.rotation;
         }
+    }
+
+
+    private void UpdateCarPosition()
+    {
+        if (isGrounded)
+        // car on ground, accelerate towards the forward direction
+        {
+            // set sphere's drag to dragOnGround value
+            rb.drag = dragOnGround;
+            rb.AddForce(transform.forward * speed * 1000f);
+        } else
+        // car in the air, accelerate downwards due to gravity
+        {
+            rb.drag = .1f;
+            rb.AddForce(Vector3.up * gravity * 100f);
+        }
+
+        // limit car speed to be below max speed
+        if (rb.velocity.magnitude > maxSpeed) 
+        {
+            rb.velocity = rb.velocity.normalized * maxSpeed;
+        }
+
+        // adjust car's orientation
+        if (isGrounded && speed != 0)
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles +
+                new Vector3(
+                    0f,
+                    turn * turnStrength * Time.deltaTime * Mathf.Sign(speed) * (rb.velocity.magnitude / maxSpeed),
+                    0f)
+                );
+        }
+
+        // realign car's position to sphere
+        transform.position = rb.position;
     }
 }
