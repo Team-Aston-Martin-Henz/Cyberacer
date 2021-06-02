@@ -4,133 +4,79 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    // this is the reference to the Rigidbody component of "Sphere"
-    public Rigidbody theRB;
+    // reference to Rigidbody sphere
+    public Rigidbody rb;
 
-    // variable: maximum speed that our player car has
-    public float maxSpeed;  
-
-    //  Acceleration physics
-    public float forwardAccel = 8f, reverseAccel = 4f;
-    private float speedInput;
-
-    //  Turning physics
+    // car stats
+    public float maxSpeed = 30f;
+    public float forwardAccel = 8f;
+    public float reverseAccel = 4f;
     public float turnStrength = 180f;
-    private float turnInput;
+    
+    // current speed and current turn
+    private float speed;
+    private float turn;
 
-    //  gravity physics adjustment
-    private bool grounded;
-    public Transform groundRayPoint, groundRayPoint2;
-    public LayerMask whatIsGround;
+    // gravity related variables
+    private bool isGrounded;
+    public Transform groundRayPoint1, groundRayPoint2;
+    public LayerMask groundLayer;
     public float groundrayLength = .75f;
-
     private float dragOnGround;
-    public float gravityMod = 10f;
+    public float gravity = -10f;
 
-    //  Turning effect for wheels
+    // wheel-turning related variables
     public Transform leftFrontWheel, rightFrontWheel;
     public float maxWheelTurn = 25f;
 
-    //  particle emissions rate for 4 wheels
+    // dust trail (particle system) related variables
     public ParticleSystem[] dustTrail;
-    public float maxEmission = 25f, emissionFadeSpeed = 20f;
+    public float maxEmissionRate = 25f;
+    public float emissionFadeRate = 20f;
     private float emissionRate;
 
-    //  Sound Effect
+    // sound related variables
     public AudioSource engineSound, driftingSound;
     public float driftingFadeSpeed;
 
-    //  Start is called before the first frame update
+
     void Start()
     {
-        //  Immediately from the start, set the "Sphere" to has no parent
-        theRB.transform.parent = null;
+        // separate rigidbody from the car at the start
+        rb.transform.parent = null;
         
-        //  setting the drag on "ground" to be equal to that of the "Sphere" -> for value storage purpose
-        dragOnGround = theRB.drag;
+        // setting the drag on "ground" to be equal to that of the "Sphere" -> for value storage purpose
+        dragOnGround = rb.drag;
     }
 
-    //  Update is called once per frame
+
     void Update()
     {
-        //  vertical movement control
-        speedInput = 0f;
-        if (Input.GetAxis("Vertical") > 0)
-        {
-            speedInput = Input.GetAxis("Vertical") * forwardAccel;
-        }
-        else if (Input.GetAxis("Vertical") < 0) 
-        {
-            speedInput = Input.GetAxis("Vertical") * reverseAccel;        
-        }
+        float speedInput = Input.GetAxis("Vertical");
+        float turnInput = Input.GetAxis("Horizontal");
 
-        //  horizontal movement control
-        //  only allows horizontal direction of the car to change if the car is on the ground and there is a forward speed
-        turnInput = Input.GetAxis("Horizontal");
-        /*
-        if (grounded && Input.GetAxis("Vertical") != 0) 
-        {
-            //  Time.deltaTime is used such that the combination of turnStrength in different framerate is consistent
-            //  Mathf.Sign(speedInput) -> +ve is our speedInput is postive, else -ve -> allows steering to be intuitive to control
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles 
-                + new Vector3(0f, turnInput * turnStrength * Time.deltaTime * Mathf.Sign(speedInput) * (theRB.velocity.magnitude / maxSpeed), 0f));
-        }
-        */
+        // update speed and turn
+        speed = speedInput > 0
+            ? speedInput * forwardAccel
+            : speedInput * reverseAccel;
+        turn = turnInput;
 
-        //  Turning the wheels, with reference to the (Parent Object) Player object's geometric alignment
-        leftFrontWheel.localRotation = Quaternion.Euler
-            (
-            leftFrontWheel.localRotation.eulerAngles.x,     //  no modification on x axis
-            (turnInput * maxWheelTurn) - 180,               //  offset 180 degree
-            leftFrontWheel.localRotation.eulerAngles.z      //  no modification on y axis
-            );
-        rightFrontWheel.localRotation = Quaternion.Euler
-            (
-            rightFrontWheel.localRotation.eulerAngles.x,    //  no modification on x axis
-            (turnInput * maxWheelTurn),                     //  no offset needed
-            rightFrontWheel.localRotation.eulerAngles.z     //  no modification on y axis
-            );
+        UpdateWheels();
+        UpdateDustTrail();
 
-        //  set the "Player" 's geometical position to be the same as "Sphere"
-        /*
-         * transform.position = theRB.position;
-        */
-
-        //  control emission of particles -> fade gradually
-        emissionRate = Mathf.MoveTowards(emissionRate, 0f, emissionFadeSpeed * Time.deltaTime);
-
-        //  if car is on the ground and 
-        //  we're going to turn or 
-        //  accelerating and not being stopped -> then set the maximum emission of particles to max
-        if (grounded && (Mathf.Abs(turnInput) > .5f || (theRB.velocity.magnitude < maxSpeed * .5f && theRB.velocity.magnitude != 0f))) 
-        {
-            emissionRate = maxEmission;
-        }
-
-        if (theRB.velocity.magnitude <= 0.5f)
-        {
-            emissionRate = 0;
-        }
-
-        //  for loop to set particle emission visual efffect set above to be the same for all 4 wheels
-        for (int i = 0; i < dustTrail.Length; i++) 
-        {
-            var emissionModule = dustTrail[i].emission;
-            emissionModule.rateOverTime = emissionRate;
-        }
 
         //  Setting the sound of the engine to adjust to the speed of the PlayerCar
         if (engineSound != null) 
         {
-            engineSound.pitch = 1f + (theRB.velocity.magnitude / maxSpeed) * 2f; 
+            engineSound.pitch = 1f + (rb.velocity.magnitude / maxSpeed) * 2f; 
         }
 
         if (driftingSound != null)
         {   
             //  drifting sound should only exist on the ground
-            if (grounded)
+            if (isGrounded)
             {
-                if (Mathf.Abs(turnInput) > .5f)
+                if (Mathf.Abs(turn) > .5f)
                 {
                     driftingSound.volume = 1f;
                 }
@@ -146,71 +92,122 @@ public class CarController : MonoBehaviour
         }
     }
 
+
     private void FixedUpdate()
     {
-        grounded = false;
-
-        RaycastHit hit;
-        Vector3 normalTarget = Vector3.zero;
-
-        //  if the car's front wheels hit something in front...
-        if (Physics.Raycast(groundRayPoint.position, -transform.up, out hit, groundrayLength, whatIsGround)) 
-        {
-            grounded = true;
-
-            //  setting Y-axis of the car to be aligned with that of the Ground Ray Check
-            normalTarget = hit.normal;
-        }
-
-        //  if the car's rear wheels hit something in front...
-        if (Physics.Raycast(groundRayPoint2.position, -transform.up, out hit, groundrayLength, whatIsGround)) 
-        {
-            grounded = true;
-
-            normalTarget = (normalTarget + hit.normal) / 2f;
-        }
-
-        //  Rotation of car to match the geometric of the ground surface
-        if (grounded) 
-        {
-            transform.rotation = Quaternion.FromToRotation(transform.up, normalTarget) * transform.rotation;
-        }
-
+        UpdateInclination();
 
         //  Acceleration of the car only allowed if we are on the ground
-        if (grounded) 
+        if (isGrounded) 
         {
             //  the "Sphere"'s drag to be equal to that of the stored dragOnGround value
-            theRB.drag = dragOnGround;
+            rb.drag = dragOnGround;
             
             //  -> provide a force of 100f unit on "Sphere" in accordance to timestep
             //  -> and always in forward direction
-            theRB.AddForce(transform.forward * speedInput * 1000f);
-        }else
+            rb.AddForce(transform.forward * speed * 1000f);
+        } else
         {
             //  aero-drag
-            theRB.drag = .1f;
+            rb.drag = .1f;
 
             //  intensify gravity so that car can fall down more naturally
-            theRB.AddForce(-Vector3.up * gravityMod * 100f);
+            rb.AddForce(Vector3.up * gravity * 100f);
         }
 
         //  -> setting limit on maxSpeed of the vehicle
-        if (theRB.velocity.magnitude > maxSpeed) 
+        if (rb.velocity.magnitude > maxSpeed) 
         {
-            theRB.velocity = theRB.velocity.normalized * maxSpeed;
+            rb.velocity = rb.velocity.normalized * maxSpeed;
         }
 
-        Debug.Log(theRB.velocity.magnitude);
+        // Debug.Log(rb.velocity.magnitude);
 
-        transform.position = theRB.position;
+        transform.position = rb.position;
 
-        if (grounded && Input.GetAxis("Vertical") != 0)
+
+        // left & right movement
+        if (isGrounded && speed != 0)
         {
-            //  Time.deltaTime is used such that the combination of turnStrength in different framerate is consistent
-            //  Mathf.Sign(speedInput) -> +ve is our speedInput is postive, else -ve -> allows steering to be intuitive to control
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles
-                + new Vector3(0f, turnInput * turnStrength * Time.deltaTime * Mathf.Sign(speedInput) * (theRB.velocity.magnitude / maxSpeed), 0f));
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles +
+                new Vector3(
+                    0f,
+                    turn * turnStrength * Time.deltaTime * Mathf.Sign(speed) * (rb.velocity.magnitude / maxSpeed),
+                    0f)
+                );
+        }
+    }
+    
+
+    private void UpdateWheels()
+    {
+        leftFrontWheel.localRotation = Quaternion.Euler(
+            leftFrontWheel.localRotation.eulerAngles.x,     //  no modification on x axis
+            (turn * maxWheelTurn) - 180,                    //  offset 180 degree
+            leftFrontWheel.localRotation.eulerAngles.z      //  no modification on y axis
+        );
+        rightFrontWheel.localRotation = Quaternion.Euler(
+            rightFrontWheel.localRotation.eulerAngles.x,    //  no modification on x axis
+            (turn * maxWheelTurn),                          //  no offset needed
+            rightFrontWheel.localRotation.eulerAngles.z     //  no modification on y axis
+        );
+    }
+
+
+    private void UpdateDustTrail()
+    {
+        float v = rb.velocity.magnitude;
+
+        // let emission rate decrease gradually
+        emissionRate = Mathf.MoveTowards(emissionRate, 0f, emissionFadeRate * Time.deltaTime);
+
+        // set emission rate to be maximum when car is grounded &&
+        if (isGrounded &&
+            // car is turning or car os accelerating
+            (Mathf.Abs(turn) > .5f || (0 < v && v < maxSpeed * .5f))) 
+        {
+            emissionRate = maxEmissionRate;
+        }
+
+        // set emission rate to 0 if speed is too slow
+        if (v <= 0.5f)
+        {
+            emissionRate = 0;
+        }
+
+        // loop through the particle system array to set dust trail for all 4 wheels
+        for (int i = 0; i < dustTrail.Length; i++) 
+        {
+            var emissionModule = dustTrail[i].emission;
+            emissionModule.rateOverTime = emissionRate;
+        }
+    }
+
+
+    private void UpdateInclination()
+    {
+        isGrounded = false;
+        RaycastHit hit;
+        Vector3 normalTarget = Vector3.zero;
+
+        // check if front wheel on ramp
+        if (Physics.Raycast(groundRayPoint1.position, -transform.up, out hit, groundrayLength, groundLayer)) 
+        {
+            isGrounded = true;
+            normalTarget = hit.normal;
+        }
+
+        // check if rear wheel on ramp
+        if (Physics.Raycast(groundRayPoint2.position, -transform.up, out hit, groundrayLength, groundLayer)) 
+        {
+            isGrounded = true;
+            normalTarget = (normalTarget + hit.normal) / 2f;
+        }
+
+        // adjust car's inclination to match the geometric of the surface
+        if (isGrounded) 
+        {
+            transform.rotation = Quaternion.FromToRotation(transform.up, normalTarget) * transform.rotation;
         }
     }
 }

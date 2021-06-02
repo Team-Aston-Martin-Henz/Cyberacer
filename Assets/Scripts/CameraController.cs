@@ -29,7 +29,7 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         //  set the dist of top down camera to adjust according to speed
-        activeDistance = minDistance + ((maxDistance - minDistance) * (target.theRB.velocity.magnitude / target.maxSpeed));
+        activeDistance = minDistance + ((maxDistance - minDistance) * (target.rb.velocity.magnitude / target.maxSpeed));
 
         //  constantly update the camera's geometric position to the offset
         transform.position = target.transform.position + (offsetDirection * activeDistance);

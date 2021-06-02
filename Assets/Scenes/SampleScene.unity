@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43595704, g: 0.47411525, b: 0.51357865, a: 1}
+  m_IndirectSpecularColor: {r: 0.4359568, g: 0.4741155, b: 0.5135788, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5155,12 +5155,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d7a1356f53c1945860c9c21430fe90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theRB: {fileID: 491112115}
+  rb: {fileID: 491112115}
   maxSpeed: 30
   forwardAccel: 8
   reverseAccel: 4
   turnStrength: 180
-  groundRayPoint: {fileID: 1375014838}
+  groundRayPoint1: {fileID: 1375014838}
   groundRayPoint2: {fileID: 1630420821}
   whatIsGround:
     serializedVersion: 2
@@ -11337,7 +11337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1375014838}
   m_Layer: 0
-  m_Name: Ground Check Point
+  m_Name: Ground Check Point (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16467,7 +16467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1630420821}
   m_Layer: 0
-  m_Name: Ground Check Point (1)
+  m_Name: Ground Check Point (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16494,6 +16494,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 384520740}
     m_Modifications:
+    - target: {fileID: -6860885489744788823, guid: 220d21700d7036d44b1a3f44ab1bfbf6, type: 3}
+      propertyPath: m_Name
+      value: Left Front Wheel
+      objectReference: {fileID: 0}
+    - target: {fileID: -6524923397383191125, guid: 220d21700d7036d44b1a3f44ab1bfbf6, type: 3}
+      propertyPath: m_Name
+      value: Right Front Wheel
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 220d21700d7036d44b1a3f44ab1bfbf6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -16541,6 +16549,18 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 220d21700d7036d44b1a3f44ab1bfbf6, type: 3}
       propertyPath: m_Name
       value: hatchbackSports
+      objectReference: {fileID: 0}
+    - target: {fileID: -708332259494550097, guid: 220d21700d7036d44b1a3f44ab1bfbf6, type: 3}
+      propertyPath: m_Name
+      value: Right Rear Wheel
+      objectReference: {fileID: 0}
+    - target: {fileID: -467650660278620147, guid: 220d21700d7036d44b1a3f44ab1bfbf6, type: 3}
+      propertyPath: m_Name
+      value: Left Rear Wheel
+      objectReference: {fileID: 0}
+    - target: {fileID: 156747145930054512, guid: 220d21700d7036d44b1a3f44ab1bfbf6, type: 3}
+      propertyPath: m_Name
+      value: Body
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 220d21700d7036d44b1a3f44ab1bfbf6, type: 3}
