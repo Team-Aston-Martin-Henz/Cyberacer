@@ -37,7 +37,7 @@ public class CarController : MonoBehaviour
 
     // sound related variables
     public AudioSource engineSound, driftingSound;
-    public float driftingFadeSpeed;
+    public float driftingFadeRate;
 
 
     void Start()
@@ -65,10 +65,10 @@ public class CarController : MonoBehaviour
         UpdateDustTrail();
 
 
-        //  Setting the sound of the engine to adjust to the speed of the PlayerCar
+        // set engine sound according to speed of the car
         if (engineSound != null) 
         {
-            engineSound.pitch = 1f + (rb.velocity.magnitude / maxSpeed) * 2f; 
+            engineSound.pitch = 1f + (rb.velocity.magnitude / maxSpeed) * 2f; // adjust if needed
         }
 
         if (driftingSound != null)
@@ -82,7 +82,7 @@ public class CarController : MonoBehaviour
                 }
                 else
                 {
-                    driftingSound.volume = Mathf.MoveTowards(driftingSound.volume, 0f, driftingFadeSpeed * Time.deltaTime);
+                    driftingSound.volume = Mathf.MoveTowards(driftingSound.volume, 0f, driftingFadeRate * Time.deltaTime);
                 }
             }
             else 
