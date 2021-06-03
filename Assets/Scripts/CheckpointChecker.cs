@@ -3,24 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-/*
- * CheckpointChecker is an component of the "Sphere" object
- */
 public class CheckpointChecker : MonoBehaviour
 {
-    //  theCar refers to the "PLayer" object
-    public CarController theCar;
+    // reference to player car
+    public CarController car;
 
-    //  OnTriggerEnter function is an in-built function that interacts with a Collider Obhject
-    //  In this case, OnTriggerEnter function is automatically called when the "Player" enters a checkpoint
-    //  which carries the Box Collider Component labelled with "Is Trigger"
+    // built-in function, called when colliding with trigger-type box collider component 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Checkpoint") 
         {
-            //  other.GetComponent<Checkpoints>().cpNumber -> gives the
-            //  specific checkpoint number of that checkpoint
-            theCar.CheckpointHit(other.GetComponent<Checkpoints>().cpNumber); 
+            car.CheckpointHit(other.GetComponent<Checkpoint>().cpNumber); 
         }
     }
 }
