@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundOnCollision : MonoBehaviour
 {
-    public AudioSource soundToPlay;
+    public AudioSource collisionSFX;
     public int groundLayerNo = 6;
 
     // Start is called before the first frame update
@@ -21,12 +21,12 @@ public class SoundOnCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        //  play collision effect is allowed if player is not on ground
+        // collision with the ground is not valid collision, should not play any sound
         if (other.gameObject.layer != groundLayerNo) 
         {
-            soundToPlay.Stop();
-            soundToPlay.pitch = Random.Range(0.6f, 1.2f);
-            soundToPlay.Play();
+            collisionSFX.Stop();
+            collisionSFX.pitch = Random.Range(0.6f, 1.2f);
+            collisionSFX.Play();
         }
     }
 }
