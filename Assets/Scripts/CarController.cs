@@ -273,7 +273,7 @@ public class CarController : MonoBehaviour
         {
             nextCheckpoint++;
 
-            if (nextCheckpoint == RaceManager.instance.allCheckPoints.Length)
+            if (nextCheckpoint == RaceManager.instance.allCheckpoints.Length)
             {
                 nextCheckpoint = 0;
                 LapCompleted();
