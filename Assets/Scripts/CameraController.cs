@@ -8,15 +8,19 @@ public class CameraController : MonoBehaviour
     public CarController target;
 
     private Vector3 offsetDirection;
+    
     //  set in Unity Inspector -> min = 15, max = 35
     public float minDistance, maxDistance;
     private float activeDistance;
 
+    //  An GameObject that is aligned geometrically with the playerCar object 
+    public Transform startTargetOffset;
+
     // Start is called before the first frame update
     void Start()
-    {   
-        //  a constant geometric positioning difference from the car to the top-down camera at the 1st frame
-        offsetDirection = transform.position - target.transform.position;
+    {
+        //  a constant geometric positioning difference from the playerCar to the top-down camera at the 1st frame
+        offsetDirection = transform.position - startTargetOffset.position;
 
         //  activeDist -> set to minDist
         activeDistance = minDistance;

@@ -9,6 +9,8 @@ public class RaceManager : MonoBehaviour
 
     public Checkpoints[] allCheckPoints;
 
+    public int totalLaps;
+
     //  Awake function happens every time an object is activated or deactivated in scene
     //  NOTE: Awake() fucntion happens before start() function
     private void Awake()

@@ -44,6 +44,9 @@ public class CarController : MonoBehaviour
     private int nextCheckpoint;
     public int currentLap;
 
+    //  Lap Time Record
+    public float lapTime, bestLapTime;
+
     //  Start is called before the first frame update
     void Start()
     {
@@ -52,11 +55,21 @@ public class CarController : MonoBehaviour
         
         //  setting the drag on "ground" to be equal to that of the "Sphere" -> for value storage purpose
         dragOnGround = theRB.drag;
+
+        //  This sets the start count to 1 and the total lap to the supposed value for the lapDisplay
+        UIManager.instance.LapCounterText.text = currentLap + "/" + RaceManager.instance.totalLaps;
     }
 
     //  Update is called once per frame
     void Update()
     {
+        //  LapTime is incremented as according to the framerate timing
+        lapTime += Time.deltaTime;
+        //  Conversion from seconds into Time Format
+        var ts = System.TimeSpan.FromSeconds(lapTime);
+        //  String display of Time
+        UIManager.instance.currentLapTimeText.text = string.Format("{0:00}M{1:00}.{2:000}S", ts.Minutes, ts.Seconds, ts.Milliseconds);
+
         //  vertical movement control
         speedInput = 0f;
         if (Input.GetAxis("Vertical") > 0)
@@ -232,8 +245,30 @@ public class CarController : MonoBehaviour
             if (nextCheckpoint == RaceManager.instance.allCheckPoints.Length) 
             {
                 nextCheckpoint = 0;
-                currentLap++;
+                LapCompleted();
             }
         }
+    }
+
+    //  LapCompleted is a function that updates the bestLapTime and resets the lapTime to 0 for a new lap
+    public void LapCompleted() 
+    {   
+        //  Update Lap Count
+        currentLap++;
+
+        //  If we have a better timing or we don't previously have a lap time -> we update it
+        if (lapTime < bestLapTime || bestLapTime == 0f) 
+        {
+            bestLapTime = lapTime;
+        }
+
+        //  Reset lapTime to 0 for a new lap
+        lapTime = 0f;
+
+        //  Display for best time information
+        var ts = System.TimeSpan.FromSeconds(bestLapTime);
+        UIManager.instance.bestLapTimeText.text = string.Format("{0:00}M{1:00}.{2:000}S", ts.Minutes, ts.Seconds, ts.Milliseconds);
+
+        UIManager.instance.LapCounterText.text = currentLap + "/" + RaceManager.instance.totalLaps;
     }
 }
