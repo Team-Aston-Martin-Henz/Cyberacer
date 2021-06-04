@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43595704, g: 0.47411525, b: 0.51357865, a: 1}
+  m_IndirectSpecularColor: {r: 0.4359568, g: 0.4741155, b: 0.5135788, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -289,6 +289,11 @@ MeshCollider:
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: f687edc5ce40ea74aafedc6855ac7291, type: 3}
   m_PrefabInstance: {fileID: 1900249042}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &283687216 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 39305635464750113, guid: f0b5615a669fa294ca028b266ab02c01, type: 3}
+  m_PrefabInstance: {fileID: 39305635787563666}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &352727355 stripped
 Transform:
@@ -707,7 +712,7 @@ GameObject:
   - component: {fileID: 1002957699}
   - component: {fileID: 1002957702}
   m_Layer: 0
-  m_Name: Checkpoint (2)
+  m_Name: Checkpoint (3)
   m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1145,7 +1150,7 @@ GameObject:
   - component: {fileID: 1476924749}
   - component: {fileID: 1476924751}
   m_Layer: 0
-  m_Name: Checkpoint
+  m_Name: Checkpoint (1)
   m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1254,7 +1259,7 @@ GameObject:
   - component: {fileID: 1524966300}
   - component: {fileID: 1524966303}
   m_Layer: 0
-  m_Name: Checkpoint (3)
+  m_Name: Checkpoint (4)
   m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1502,7 +1507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2623988bef19f3546a5780cfd089e17b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allCheckPoints:
+  allCheckpoints:
   - {fileID: 1476924751}
   - {fileID: 2098715886}
   - {fileID: 1002957702}
@@ -1532,7 +1537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1864197763}
   m_Layer: 0
-  m_Name: Checkpoints
+  m_Name: Checkpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1617,6 +1622,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f687edc5ce40ea74aafedc6855ac7291, type: 3}
+--- !u!4 &1964976362 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 39305634452925732, guid: f0b5615a669fa294ca028b266ab02c01, type: 3}
+  m_PrefabInstance: {fileID: 39305635787563666}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2011216795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1688,7 +1698,7 @@ GameObject:
   - component: {fileID: 2098715883}
   - component: {fileID: 2098715886}
   m_Layer: 0
-  m_Name: Checkpoint (1)
+  m_Name: Checkpoint (2)
   m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1847,6 +1857,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 39305634195692998, guid: f0b5615a669fa294ca028b266ab02c01, type: 3}
+      propertyPath: m_Name
+      value: Ground Check Point (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 39305634218730463, guid: f0b5615a669fa294ca028b266ab02c01, type: 3}
+      propertyPath: m_Name
+      value: Particle System (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 39305634342432523, guid: f0b5615a669fa294ca028b266ab02c01, type: 3}
+      propertyPath: m_Name
+      value: Particle System (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 39305634441755504, guid: f0b5615a669fa294ca028b266ab02c01, type: 3}
+      propertyPath: m_Name
+      value: Drifting Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 39305634452925735, guid: f0b5615a669fa294ca028b266ab02c01, type: 3}
+      propertyPath: m_Name
+      value: Ground Check Point (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 39305634747251260, guid: f0b5615a669fa294ca028b266ab02c01, type: 3}
+      propertyPath: m_Name
+      value: Particle System (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 39305635464750113, guid: f0b5615a669fa294ca028b266ab02c01, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 39305635464750113, guid: f0b5615a669fa294ca028b266ab02c01, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 39305635541725361, guid: f0b5615a669fa294ca028b266ab02c01, type: 3}
       propertyPath: m_Name
       value: Player Car
@@ -1895,6 +1937,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 39305635541725367, guid: f0b5615a669fa294ca028b266ab02c01, type: 3}
+      propertyPath: gravity
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 39305635541725367, guid: f0b5615a669fa294ca028b266ab02c01, type: 3}
+      propertyPath: rigidBody
+      value: 
+      objectReference: {fileID: 283687216}
+    - target: {fileID: 39305635541725367, guid: f0b5615a669fa294ca028b266ab02c01, type: 3}
+      propertyPath: groundRayPoint1
+      value: 
+      objectReference: {fileID: 1964976362}
+    - target: {fileID: 39305635541725367, guid: f0b5615a669fa294ca028b266ab02c01, type: 3}
+      propertyPath: driftingFadeRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 39305635541725367, guid: f0b5615a669fa294ca028b266ab02c01, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 39305635731841104, guid: f0b5615a669fa294ca028b266ab02c01, type: 3}
+      propertyPath: m_Name
+      value: Particle System (4)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0b5615a669fa294ca028b266ab02c01, type: 3}
 --- !u!4 &5006512734806319870 stripped
@@ -1916,6 +1982,10 @@ PrefabInstance:
     - target: {fileID: 8859585882059880989, guid: afa55c9ecc5401e46ad670cba0ca7c52, type: 3}
       propertyPath: m_Name
       value: Camera Switcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859585882059880989, guid: afa55c9ecc5401e46ad670cba0ca7c52, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8859585882059880991, guid: afa55c9ecc5401e46ad670cba0ca7c52, type: 3}
       propertyPath: m_RootOrder

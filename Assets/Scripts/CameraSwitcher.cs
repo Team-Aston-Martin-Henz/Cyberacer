@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class CameraSwitcher : MonoBehaviour
 {
-    //  an array of cameras
+    // the array of cameras to switch in between
     public GameObject[] cameras;
     private int currentCam;
 
-    // Start is called before the first frame update
     void Start()
     {
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         // press `C` to switch camera

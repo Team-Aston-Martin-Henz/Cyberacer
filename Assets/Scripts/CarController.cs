@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    // this is the reference to the Rigidbody component of "Sphere"
-    public Rigidbody theRB;
+    // reference to Rigidbody sphere
+    public Rigidbody rigidBody;
 
     // variable: maximum speed that our player car has
     public float maxSpeed;
@@ -16,31 +16,34 @@ public class CarController : MonoBehaviour
 
     //  Turning physics
     public float turnStrength = 180f;
-    private float turnInput;
 
-    //  gravity physics adjustment
-    private bool grounded;
-    public Transform groundRayPoint, groundRayPoint2;
-    public LayerMask whatIsGround;
+    // current speed and current turn
+    private float speed;
+    private float turn;
+
+    // gravity related variables
+    private bool isGrounded;
+    public Transform groundRayPoint1, groundRayPoint2;
+    public LayerMask groundLayer;
     public float groundrayLength = .75f;
-
     private float dragOnGround;
-    public float gravityMod = 10f;
+    public float gravity = -10f;
 
-    //  Turning effect for wheels
+    // wheel-turning related variables
     public Transform leftFrontWheel, rightFrontWheel;
     public float maxWheelTurn = 25f;
 
-    //  particle emissions rate for 4 wheels
+    // dust trail (particle system) related variables
     public ParticleSystem[] dustTrail;
-    public float maxEmission = 25f, emissionFadeSpeed = 20f;
+    public float maxEmissionRate = 25f;
+    public float emissionFadeRate = 20f;
     private float emissionRate;
 
-    //  Sound Effect
+    // sound related variables
     public AudioSource engineSound, driftingSound;
-    public float driftingFadeSpeed;
+    public float driftingFadeRate;
 
-    //  Lap Record and Checkpoint Record
+    // checkpoint related variables
     private int nextCheckpoint;
     public int currentLap;
 
@@ -60,7 +63,7 @@ public class CarController : MonoBehaviour
         UIManager.instance.LapCounterText.text = currentLap + "/" + RaceManager.instance.totalLaps;
     }
 
-    //  Update is called once per frame
+
     void Update()
     {
         updateLapTimeDisplay();
@@ -70,7 +73,7 @@ public class CarController : MonoBehaviour
         updateEngineSFX();
         updateDriftingSFX();
     }
-  
+
     //  Update without reference to framerate
     private void FixedUpdate()
     {
@@ -120,17 +123,16 @@ public class CarController : MonoBehaviour
         }
         */
 
-        //  Turning the wheels, with reference to the (Parent Object) Player object's geometric alignment
-        leftFrontWheel.localRotation = Quaternion.Euler
-            (
+    private void UpdateWheels()
+    {
+        leftFrontWheel.localRotation = Quaternion.Euler(
             leftFrontWheel.localRotation.eulerAngles.x,     //  no modification on x axis
-            (turnInput * maxWheelTurn) - 180,               //  offset 180 degree
+            (turn * maxWheelTurn) - 180,                    //  offset 180 degree
             leftFrontWheel.localRotation.eulerAngles.z      //  no modification on y axis
-            );
-        rightFrontWheel.localRotation = Quaternion.Euler
-            (
+        );
+        rightFrontWheel.localRotation = Quaternion.Euler(
             rightFrontWheel.localRotation.eulerAngles.x,    //  no modification on x axis
-            (turnInput * maxWheelTurn),                     //  no offset needed
+            (turn * maxWheelTurn),                          //  no offset needed
             rightFrontWheel.localRotation.eulerAngles.z     //  no modification on y axis
             );
     }
@@ -145,10 +147,11 @@ public class CarController : MonoBehaviour
         //  accelerating and not being stopped -> then set the maximum emission of particles to max
         if (grounded && (Mathf.Abs(turnInput) > .5f || (theRB.velocity.magnitude < maxSpeed * .5f && theRB.velocity.magnitude != 0f)))
         {
-            emissionRate = maxEmission;
+            emissionRate = maxEmissionRate;
         }
 
-        if (theRB.velocity.magnitude <= 0.5f)
+        // set emission rate to 0 if speed is too slow
+        if (v <= 0.5f)
         {
             emissionRate = 0;
         }
@@ -189,32 +192,32 @@ public class CarController : MonoBehaviour
             }
             else
             {
-                driftingSound.volume = 0;
+                driftingSound.volume = Mathf.MoveTowards(driftingSound.volume, 0f, driftingFadeRate * Time.deltaTime);
             }
         }
     }
 
-    private void fixedUpdateInclination() 
+    private void fixedUpdateInclination()
     {
         grounded = false;
 
+    private void UpdateInclination()
+    {
+        isGrounded = false;
         RaycastHit hit;
         Vector3 normalTarget = Vector3.zero;
 
         //  if the car's front wheels hit something in front...
         if (Physics.Raycast(groundRayPoint.position, -transform.up, out hit, groundrayLength, whatIsGround))
         {
-            grounded = true;
-
-            //  setting Y-axis of the car to be aligned with that of the Ground Ray Check
+            isGrounded = true;
             normalTarget = hit.normal;
         }
 
         //  if the car's rear wheels hit something in front...
         if (Physics.Raycast(groundRayPoint2.position, -transform.up, out hit, groundrayLength, whatIsGround))
         {
-            grounded = true;
-
+            isGrounded = true;
             normalTarget = (normalTarget + hit.normal) / 2f;
         }
 
@@ -225,7 +228,7 @@ public class CarController : MonoBehaviour
         }
     }
 
-    private void fixedUpdateCarMovement() 
+    private void fixedUpdateCarMovement()
     {
         //  Acceleration of the car only allowed if we are on the ground
         if (grounded)
@@ -239,30 +242,29 @@ public class CarController : MonoBehaviour
         }
         else
         {
-            //  aero-drag
-            theRB.drag = .1f;
-
-            //  intensify gravity so that car can fall down more naturally
-            theRB.AddForce(-Vector3.up * gravityMod * 100f);
+            rigidBody.drag = .1f;
+            rigidBody.AddForce(Vector3.up * gravity * 100f);
         }
 
         //  -> setting limit on maxSpeed of the vehicle
         if (theRB.velocity.magnitude > maxSpeed)
         {
-            theRB.velocity = theRB.velocity.normalized * maxSpeed;
+            rigidBody.velocity = rigidBody.velocity.normalized * maxSpeed;
         }
 
-        //  Debug.Log(theRB.velocity.magnitude);
-
-        transform.position = theRB.position;
-
-        if (grounded && Input.GetAxis("Vertical") != 0)
+        // adjust car's orientation
+        if (isGrounded && speed != 0)
         {
-            //  Time.deltaTime is used such that the combination of turnStrength in different framerate is consistent
-            //  Mathf.Sign(speedInput) -> +ve is our speedInput is postive, else -ve -> allows steering to be intuitive to control
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles
-                + new Vector3(0f, turnInput * turnStrength * Time.deltaTime * Mathf.Sign(speedInput) * (theRB.velocity.magnitude / maxSpeed), 0f));
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles +
+                new Vector3(
+                    0f,
+                    turn * turnStrength * Time.deltaTime * Mathf.Sign(speed) * (rigidBody.velocity.magnitude / maxSpeed),
+                    0f)
+                );
         }
+
+        // realign car's position to sphere
+        transform.position = rigidBody.position;
     }
 
     //  CheckpointHit is a function that updates the Lap and Checkpoint
