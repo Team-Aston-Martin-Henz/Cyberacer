@@ -17,27 +17,12 @@ public class CameraSwitcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //  when pressed on the key letter "C"
+        // press `C` to switch camera
         if (Input.GetKeyDown(KeyCode.C))
         {
-            currentCam++;
-
-            if (currentCam >= 2) 
-            {
-                currentCam = 0;
-            }
-
-            for (int i = 0; i < cameras.Length; i++)
-            {
-                if (i == currentCam)
-                {
-                    cameras[i].SetActive(true);
-                }
-                else
-                {
-                    cameras[i].SetActive(false);
-                }
-            }
+            cameras[currentCam].SetActive(false);
+            currentCam = ++currentCam % cameras.Length;
+            cameras[currentCam].SetActive(true);
         }
     }
 }
