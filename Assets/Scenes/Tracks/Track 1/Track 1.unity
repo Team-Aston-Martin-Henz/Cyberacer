@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10679,7 +10679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2623988bef19f3546a5780cfd089e17b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allCheckPoints:
+  allCheckpoints:
   - {fileID: 2140620147}
   - {fileID: 1705596142}
   - {fileID: 894306411}
@@ -31560,18 +31560,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d7a1356f53c1945860c9c21430fe90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theRB: {fileID: 39305635783724484}
+  rigidBody: {fileID: 39305635783724484}
   maxSpeed: 30
   forwardAccel: 8
   reverseAccel: 4
   turnStrength: 180
-  groundRayPoint: {fileID: 39305634637644993}
+  groundRayPoint1: {fileID: 39305634637644993}
   groundRayPoint2: {fileID: 39305633843164194}
-  whatIsGround:
+  groundLayer:
     serializedVersion: 2
     m_Bits: 64
   groundrayLength: 0.75
-  gravityMod: 10
+  gravity: -10
   leftFrontWheel: {fileID: 4733879746604078257}
   rightFrontWheel: {fileID: 5189471998506353935}
   maxWheelTurn: 25
@@ -31581,9 +31581,9 @@ MonoBehaviour:
   - {fileID: 39305634294043590}
   - {fileID: 39305635513551282}
   maxEmission: 25
-  emissionFadeSpeed: 50
-  engineSound: {fileID: 39305634076656199}
-  driftingSound: {fileID: 39305634659766931}
+  emissionFadeRate: 20
+  engineSFX: {fileID: 39305634076656199}
+  driftingSFX: {fileID: 39305634659766931}
   driftingFadeSpeed: 2
   currentLap: 1
   lapTime: 0
@@ -31639,7 +31639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fb85b8c16fca843b95b46d5790ea71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theCar: {fileID: 39305635625556306}
+  car: {fileID: 39305635625556306}
 --- !u!114 &39305635783724483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31652,7 +31652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cfcee0848b55df4e811e8c38df89af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay: {fileID: 39305635220771542}
+  collisionSFX: {fileID: 39305635220771542}
   groundLayerNo: 6
 --- !u!54 &39305635783724484
 Rigidbody:
