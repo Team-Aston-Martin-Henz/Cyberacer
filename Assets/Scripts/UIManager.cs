@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
-    public TMP_Text LapCounterText, bestLapTimeText, currentLapTimeText;
+    public TMP_Text lapCounterText, bestLapTimeText, currentLapTimeText;
 
     private void Awake()
     {

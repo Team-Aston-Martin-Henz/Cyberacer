@@ -39,20 +39,10 @@ public class CarController : MonoBehaviour
     public AudioSource engineSFX, driftingSFX;
     public float driftingFadeRate = 2f;
 
-    //  Lap Record and Checkpoint Record
+    // race management related variables
     private int nextCheckpoint;
     public int currentLap;
-
-
-
-    //  Lap Time Record
     public float lapTime, bestLapTime;
-
-
-
-
-
-
 
 
     //  Start is called before the first frame update
@@ -62,30 +52,30 @@ public class CarController : MonoBehaviour
         rigidBody.transform.parent = null;
         // setting the drag on ground to be equal to that of the sphere
         dragOnGround = rigidBody.drag;
-
-
-
-        //  This sets the start count to 1 and the total lap to the supposed value for the lapDisplay
-        UIManager.instance.LapCounterText.text = currentLap + "/" + RaceManager.instance.totalLaps;
+        // display correct current lap count
+        UIManager.instance.lapCounterText.text = currentLap + "/" + RaceManager.instance.totalLaps;
     }
+
 
     // Update is called once per frame
     void Update()
     {
         UpdateSpeedAndTurn();
-        UpdateLapTimeDisplay();
         UpdateSteering();
         UpdateDustTrail();
         UpdateEngineSFX();
         UpdateDriftingSFX();
+        UpdateLapTimeDisplay();
     }
   
+
     // update per delta time
     private void FixedUpdate()
     {
         FixedUpdateInclination();
         FixedUpdateCarMovement();
     }
+
 
     private void UpdateSpeedAndTurn()
     {
@@ -97,18 +87,6 @@ public class CarController : MonoBehaviour
             ? speedInput * forwardAccel
             : speedInput * reverseAccel;
         turn = turnInput;
-    }
-
-
-
-    private void UpdateLapTimeDisplay()
-    {
-        //  LapTime is incremented as according to the framerate timing
-        lapTime += Time.deltaTime;
-        //  Conversion from seconds into Time Format
-        var ts = System.TimeSpan.FromSeconds(lapTime);
-        //  String display of Time
-        UIManager.instance.currentLapTimeText.text = string.Format("{0:00}M{1:00}.{2:000}S", ts.Minutes, ts.Seconds, ts.Milliseconds);
     }
 
 
@@ -125,6 +103,7 @@ public class CarController : MonoBehaviour
             rightFrontWheel.localRotation.eulerAngles.z     //  no modification on y axis
         );
     }
+
 
     private void UpdateDustTrail()
     {
@@ -154,6 +133,7 @@ public class CarController : MonoBehaviour
             emissionModule.rateOverTime = emissionRate;
         }
     }
+
 
     private void UpdateEngineSFX()
     {
@@ -185,6 +165,17 @@ public class CarController : MonoBehaviour
     }
 
 
+    private void UpdateLapTimeDisplay()
+    {
+        // lapTime incremented as according to the frame rate timing
+        lapTime += Time.deltaTime;
+        // convert from seconds to time format and display it accordingly
+        var ts = System.TimeSpan.FromSeconds(lapTime);
+        UIManager.instance.currentLapTimeText.text =
+            string.Format("{0:00}M{1:00}.{2:000}S", ts.Minutes, ts.Seconds, ts.Milliseconds);
+    }
+
+
     private void FixedUpdateInclination()
     {
         isGrounded = false;
@@ -212,7 +203,6 @@ public class CarController : MonoBehaviour
             transform.rotation = Quaternion.FromToRotation(transform.up, normalTarget) * transform.rotation;
         }
     }
-
 
 
     private void FixedUpdateCarMovement()
@@ -253,7 +243,6 @@ public class CarController : MonoBehaviour
     }
 
 
-
     public void CheckpointHit(int cpNumber)
     {
         if (cpNumber == nextCheckpoint) 
@@ -262,31 +251,32 @@ public class CarController : MonoBehaviour
             if (nextCheckpoint == RaceManager.instance.allCheckpoints.Length) 
             {
                 nextCheckpoint = 0;
+                LapCompleted();
                 currentLap++;
             }
         }
     }
 
 
-    //  LapCompleted is a function that updates the bestLapTime and resets the lapTime to 0 for a new lap
     public void LapCompleted()
     {
-        //  Update Lap Count
         currentLap++;
 
-        //  If we have a better timing or we don't previously have a lap time -> we update it
+        // update best lap time
         if (lapTime < bestLapTime || bestLapTime == 0f)
         {
             bestLapTime = lapTime;
         }
 
-        //  Reset lapTime to 0 for a new lap
+        // reset lap time to 0 for a new lap
         lapTime = 0f;
 
-        //  Display for best time information
+        // display best lap time
         var ts = System.TimeSpan.FromSeconds(bestLapTime);
-        UIManager.instance.bestLapTimeText.text = string.Format("{0:00}M{1:00}.{2:000}S", ts.Minutes, ts.Seconds, ts.Milliseconds);
+        UIManager.instance.bestLapTimeText.text =
+            string.Format("{0:00}M{1:00}.{2:000}S", ts.Minutes, ts.Seconds, ts.Milliseconds);
 
-        UIManager.instance.LapCounterText.text = currentLap + "/" + RaceManager.instance.totalLaps;
+        // display updated lap count
+        UIManager.instance.lapCounterText.text = currentLap + "/" + RaceManager.instance.totalLaps;
     }
 }

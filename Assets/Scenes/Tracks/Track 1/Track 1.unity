@@ -10989,7 +10989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be5b553a4c4b4f4ca47fb5400c387ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LapCounterText: {fileID: 2118221351}
+  lapCounterText: {fileID: 2118221351}
   bestLapTimeText: {fileID: 1645286551}
   currentLapTimeText: {fileID: 580619469}
 --- !u!1 &2007260692
@@ -31580,11 +31580,11 @@ MonoBehaviour:
   - {fileID: 39305634694661867}
   - {fileID: 39305634294043590}
   - {fileID: 39305635513551282}
-  maxEmission: 25
+  maxEmissionRate: 25
   emissionFadeRate: 20
   engineSFX: {fileID: 39305634076656199}
   driftingSFX: {fileID: 39305634659766931}
-  driftingFadeSpeed: 2
+  driftingFadeRate: 2
   currentLap: 1
   lapTime: 0
   bestLapTime: 0

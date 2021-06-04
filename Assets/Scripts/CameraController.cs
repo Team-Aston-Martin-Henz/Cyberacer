@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
     public float maxDistance;
     private float activeDistance;
 
-    // game object that is aligned geometrically with the car
+    // transform instance to make sure camera follows car no matter where it starts on the grid
     public Transform startTargetOffset;
 
     // Start is called before the first frame update
