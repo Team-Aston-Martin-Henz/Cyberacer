@@ -6,7 +6,7 @@ public class RaceManager : MonoBehaviour
 {
     //  Singleton
     public static RaceManager instance;
-    public Checkpoints[] allCheckPoints;
+    public Checkpoint[] allCheckPoints;
     public int totalLaps;
 
     //  Awake function happens every time an object is activated or deactivated in scene
