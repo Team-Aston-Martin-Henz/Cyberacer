@@ -11,12 +11,12 @@ public class CameraSwitcher : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
-    {   
+    {
         //  when pressed on the key letter "C"
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -27,13 +27,13 @@ public class CameraSwitcher : MonoBehaviour
                 currentCam = 0;
             }
 
-            for (int i = 0; i < cameras.Length; i++) 
+            for (int i = 0; i < cameras.Length; i++)
             {
-                if (i == currentCam) 
+                if (i == currentCam)
                 {
                     cameras[i].SetActive(true);
                 }
-                else 
+                else
                 {
                     cameras[i].SetActive(false);
                 }
