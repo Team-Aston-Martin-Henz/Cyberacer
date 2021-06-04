@@ -15105,7 +15105,7 @@ MonoBehaviour:
   engineSound: {fileID: 39305633891937186}
   driftingSound: {fileID: 39305634441755510}
   driftingFadeSpeed: 2
-  currentLap: 0
+  currentLap: 1
 --- !u!81 &39305635541725364
 AudioListener:
   m_ObjectHideFlags: 0

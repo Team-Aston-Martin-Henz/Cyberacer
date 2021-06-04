@@ -6,8 +6,11 @@ public class RaceManager : MonoBehaviour
 {
     // singleton instance for CarController to access number of checkpoints
     public static RaceManager instance;
-    public Checkpoint[] allCheckpoints;
+    public Checkpoints[] allCheckPoints;
+    public int totalLaps;
 
+    //  Awake function happens every time an object is activated or deactivated in scene
+    //  NOTE: Awake() fucntion happens before start() function
     private void Awake()
     {
         // assign this to instance to make sure only 1 race manager exists
@@ -26,6 +29,6 @@ public class RaceManager : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 }

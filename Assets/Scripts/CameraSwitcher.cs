@@ -10,18 +10,33 @@ public class CameraSwitcher : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
 
     void Update()
-    {   
-        // press `C` to switch camera
+    {
+        //  when pressed on the key letter "C"
         if (Input.GetKeyDown(KeyCode.C))
         {
-            cameras[currentCam].SetActive(false);
-            currentCam = ++currentCam % cameras.Length;
-            cameras[currentCam].SetActive(true);
+            currentCam++;
+
+            if (currentCam >= 2)
+            {
+                currentCam = 0;
+            }
+
+            for (int i = 0; i < cameras.Length; i++)
+            {
+                if (i == currentCam)
+                {
+                    cameras[i].SetActive(true);
+                }
+                else
+                {
+                    cameras[i].SetActive(false);
+                }
+            }
         }
     }
 }
