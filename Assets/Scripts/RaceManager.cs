@@ -4,29 +4,28 @@ using UnityEngine;
 
 public class RaceManager : MonoBehaviour
 {
-    //  Singleton
+    // singleton instance for CarController to access number of checkpoints
     public static RaceManager instance;
-    public Checkpoints[] allCheckPoints;
+    public Checkpoint[] allCheckpoints;
     public int totalLaps;
 
     //  Awake function happens every time an object is activated or deactivated in scene
-    //  NOTE: Awake() fucntion happens before start() function
+    //  Awake() happens before Start()
     private void Awake()
     {
-        //  Immediately when the game is activated, instance is refered to the "Race Manager"
-        //  GameObject. If we create a "Race Manager (2)" GameObject in our class, instance will then refer
-        //  to "Race Manager (2)" GameObject. This ensures that we only have 1 race manager throughout.
+        // assign this to instance to make sure only 1 race manager exists
         instance = this;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < allCheckPoints.Length; i++)
+        for (int i = 0; i < allCheckpoints.Length; i++)
         {
-            allCheckPoints[i].cpNumber = i;
+            allCheckpoints[i].cpNumber = i;
         }
     }
+
 
     // Update is called once per frame
     void Update()
