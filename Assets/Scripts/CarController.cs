@@ -44,6 +44,9 @@ public class CarController : MonoBehaviour
     public int currentLap;
     public float lapTime, bestLapTime;
 
+    // AI Car Property
+    public bool isAI;
+
 
     //  Start is called before the first frame update
     void Start()
@@ -60,7 +63,10 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateSpeedAndTurn();
+        if (!isAI)
+        {
+            UpdateSpeedAndTurn();
+        }
         UpdateSteering();
         UpdateDustTrail();
         UpdateEngineSFX();
@@ -270,13 +276,15 @@ public class CarController : MonoBehaviour
 
         // reset lap time to 0 for a new lap
         lapTime = 0f;
+        if (!isAI)
+        {
+            // display best lap time
+            var ts = System.TimeSpan.FromSeconds(bestLapTime);
+            UIManager.instance.bestLapTimeText.text =
+                string.Format("{0:00}M{1:00}.{2:000}S", ts.Minutes, ts.Seconds, ts.Milliseconds);
 
-        // display best lap time
-        var ts = System.TimeSpan.FromSeconds(bestLapTime);
-        UIManager.instance.bestLapTimeText.text =
-            string.Format("{0:00}M{1:00}.{2:000}S", ts.Minutes, ts.Seconds, ts.Milliseconds);
-
-        // display updated lap count
-        UIManager.instance.lapCounterText.text = currentLap + "/" + RaceManager.instance.totalLaps;
+            // display updated lap count
+            UIManager.instance.lapCounterText.text = currentLap + "/" + RaceManager.instance.totalLaps;
+        }
     }
 }
