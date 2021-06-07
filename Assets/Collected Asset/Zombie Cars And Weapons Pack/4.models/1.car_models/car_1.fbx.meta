@@ -1,0 +1,140 @@
+fileFormatVersion: 2
+guid: 6b8e8fe0ce5e540319b478f77af5776f
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Body
+    100002: //RootNode
+    100004: FL
+    100006: FR
+    100008: RL
+    100010: RR
+    100012: car_1_body
+    100014: FL_wheel
+    100016: FR_wheel
+    100018: RL_wgeel
+    100020: RR_wheel
+    400000: Body
+    400002: //RootNode
+    400004: FL
+    400006: FR
+    400008: RL
+    400010: RR
+    400012: car_1_body
+    400014: FL_wheel
+    400016: FR_wheel
+    400018: RL_wgeel
+    400020: RR_wheel
+    2100000: Jeep Bake
+    2100002: No Name
+    2300000: Body
+    2300002: FL
+    2300004: FR
+    2300006: RL
+    2300008: RR
+    2300010: car_1_body
+    2300012: FL_wheel
+    2300014: FR_wheel
+    2300016: RL_wgeel
+    2300018: RR_wheel
+    3300000: Body
+    3300002: FL
+    3300004: FR
+    3300006: RL
+    3300008: RR
+    3300010: car_1_body
+    3300012: FL_wheel
+    3300014: FR_wheel
+    3300016: RL_wgeel
+    3300018: RR_wheel
+    4300000: Body
+    4300002: FR
+    4300004: RR
+    4300006: RL
+    4300008: FL
+    4300010: car_1_body
+    4300012: FR_wheel
+    4300014: FL_wheel
+    4300016: RR_wheel
+    4300018: RL_wgeel
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 27
+    normalImportMode: 1
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
