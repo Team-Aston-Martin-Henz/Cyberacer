@@ -65,6 +65,10 @@ public class CarController : MonoBehaviour
     private float aiSpeedInput;
     private float aiSpeedMod;
 
+    //  Reset Cooldown
+    public float resetCoolDown = 2f;
+    private float resetCounter;
+
     //  Start is called before the first frame update
     void Start()
     {
@@ -86,6 +90,8 @@ public class CarController : MonoBehaviour
 
         // display correct current lap count
         UIManager.instance.lapCounterText.text = currentLap + "/" + RaceManager.instance.totalLaps;
+
+        resetCounter = resetCoolDown;
     }
 
 
@@ -99,6 +105,18 @@ public class CarController : MonoBehaviour
             {
                 //  for player
                 UpdateSpeedAndTurn();
+
+                /// <Reset Car Position to last Checkpoint>
+                if (resetCounter > 0)
+                {
+                    resetCounter -= Time.deltaTime;
+                }
+
+                if (Input.GetKeyDown(KeyCode.R) && resetCounter <= 0)
+                {
+                    ResetToTrack();
+                }
+
             }
             else
             {
@@ -396,4 +414,23 @@ public class CarController : MonoBehaviour
         //  allow the target point for each checkpoint to be different for all cars
         RandomiseAITarget();
     }
+
+    void ResetToTrack() 
+    {
+        //  set to previous checkpoint
+        int pointToGoTo = nextCheckpoint - 1;
+        if (pointToGoTo < 0) {
+            pointToGoTo = RaceManager.instance.allCheckpoints.Length - 1;
+        }
+
+        transform.position = RaceManager.instance.allCheckpoints[pointToGoTo].transform.position;
+        rigidBody.transform.position = transform.position;
+        rigidBody.velocity = Vector3.zero;
+
+        speed = 0f;
+        turn = 0f;
+
+        resetCounter = resetCoolDown;
+    }
+
 }
