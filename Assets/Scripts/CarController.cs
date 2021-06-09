@@ -339,16 +339,17 @@ public class CarController : MonoBehaviour
 
     public void CheckpointHit(int cpNumber)
     {
-        if (cpNumber != nextCheckpoint) return;
-
-        nextCheckpoint++;
-        if (nextCheckpoint == RaceManager.instance.allCheckpoints.Length) 
+        if (cpNumber == nextCheckpoint) 
         {
-            nextCheckpoint = 0;
-            LapCompleted();
+            nextCheckpoint++;
+            if (nextCheckpoint == RaceManager.instance.allCheckpoints.Length) 
+            {
+                nextCheckpoint = 0;
+                LapCompleted();
+            }
         }
 
-        if (isAI)
+        if (isAI && cpNumber == currentTarget)
         {
             SetNextAITarget();
         }
