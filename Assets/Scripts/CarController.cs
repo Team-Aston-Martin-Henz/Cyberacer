@@ -44,12 +44,7 @@ public class CarController : MonoBehaviour
     public int currentLap;
     public float lapTime, bestLapTime;
 
-    /// <summary>
-    /// new work as of 7 June 2021
-    /// CH7:L44
-    /// </summary>
-
-    // AI Car Check
+    // boolean to indicate if the car is AI
     public bool isAI;
 
     //  Next point for the AI to move towards to
