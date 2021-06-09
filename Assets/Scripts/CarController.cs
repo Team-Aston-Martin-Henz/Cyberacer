@@ -40,7 +40,7 @@ public class CarController : MonoBehaviour
     public float driftingFadeRate = 2f;
 
     // race management related variables
-    private int nextCheckpoint;
+    public int nextCheckpoint;
     public int currentLap;
     public float lapTime, bestLapTime;
 
@@ -65,6 +65,10 @@ public class CarController : MonoBehaviour
     private float aiSpeedInput;
     private float aiSpeedMod;
 
+    //  Reset Cooldown
+    public float resetCoolDown = 2f;
+    private float resetCounter;
+
     //  Start is called before the first frame update
     void Start()
     {
@@ -86,64 +90,84 @@ public class CarController : MonoBehaviour
 
         // display correct current lap count
         UIManager.instance.lapCounterText.text = currentLap + "/" + RaceManager.instance.totalLaps;
+
+        resetCounter = resetCoolDown;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (!isAI)
+        //  If we are not in Countdown
+        if (!RaceManager.instance.isStarting)
         {
-            //  for player
-            UpdateSpeedAndTurn();
-        }
-        else 
-        {
-            //  We always keep our target point's height to be aligned to the height of the cars
-            targetPoint.y = transform.position.y;
-
-            if (Vector3.Distance(transform.position, targetPoint) < aiReachPointRange) 
+            if (!isAI)
             {
-                SetNextAITarget();
-            }
+                //  for player
+                UpdateSpeedAndTurn();
 
-            //  target's (x,y,z) - the car's (x,y,z) = a directional vector
-            Vector3 targetDirection = targetPoint- transform.position;
-            //  angle is the degree angle from the target point to true front of the car
-            float angle = Vector3.Angle(targetDirection, transform.forward);
-            
-            //  localPosition checks if the target point is on the left or on the right
-            Vector3 localPosition = transform.InverseTransformPoint(targetPoint);
-            if (localPosition.x < 0f)
+                /// <Reset Car Position to last Checkpoint>
+                if (resetCounter > 0)
+                {
+                    resetCounter -= Time.deltaTime;
+                }
+
+                if (Input.GetKeyDown(KeyCode.R) && resetCounter <= 0)
+                {
+                    ResetToTrack();
+                }
+
+            }
+            else
             {
-                angle = -angle;
+                /// <AI Speed Control and Driving Direction>
+                //  We always keep our target point's height to be aligned to the height of the cars
+                targetPoint.y = transform.position.y;
+
+                if (Vector3.Distance(transform.position, targetPoint) < aiReachPointRange)
+                {
+                    SetNextAITarget();
+                }
+
+                //  target's (x,y,z) - the car's (x,y,z) = a directional vector
+                Vector3 targetDirection = targetPoint - transform.position;
+                //  angle is the degree angle from the target point to true front of the car
+                float angle = Vector3.Angle(targetDirection, transform.forward);
+
+                //  localPosition checks if the target point is on the left or on the right
+                Vector3 localPosition = transform.InverseTransformPoint(targetPoint);
+                if (localPosition.x < 0f)
+                {
+                    angle = -angle;
+                }
+
+                //  turn angle limitation to |1| at most
+                turn = Mathf.Clamp(angle / aiMaxTurn,
+                    -1f, // -> limited to 1
+                    1f
+                    );
+
+                //  if target point's angle from true front of car does not exceed the maximum turn degree of AI
+                if (Mathf.Abs(angle) < aiMaxTurn)
+                {   //  We accelerate gradually by the preset acceleration rate
+                    aiSpeedInput = Mathf.MoveTowards(aiSpeedInput, 1f, aiAccelerateSpeed);
+                }
+                else
+                {
+                    //  We slow down gradually by the preset acceleration rate to the preset turning speed
+                    aiSpeedInput = Mathf.MoveTowards(aiSpeedInput, aiTurnSpeed, aiAccelerateSpeed);
+                }
+
+                speed = aiSpeedMod * aiSpeedInput * forwardAccel;
             }
 
-            //  turn angle limitation to |1| at most
-            turn = Mathf.Clamp(angle / aiMaxTurn,
-                -1f, // -> limited to 1
-                1f
-                );
 
-            //  if target point's angle from true front of car does not exceed the maximum turn degree of AI
-            if (Mathf.Abs(angle) < aiMaxTurn)
-            {   //  We accelerate gradually by the preset acceleration rate
-                aiSpeedInput = Mathf.MoveTowards(aiSpeedInput, 1f, aiAccelerateSpeed);
-            }
-            else {
-                //  We slow down gradually by the preset acceleration rate to the preset turning speed
-                aiSpeedInput = Mathf.MoveTowards(aiSpeedInput, aiTurnSpeed, aiAccelerateSpeed);
-            }
-
-            speed = aiSpeedMod * aiSpeedInput * forwardAccel;
+            UpdateSteering();
+            UpdateDustTrail();
+            UpdateEngineSFX();
+            UpdateDriftingSFX();
+            UpdateLapTimeDisplay();
         }
-
-
-        UpdateSteering();
-        UpdateDustTrail();
-        UpdateEngineSFX();
-        UpdateDriftingSFX();
-        UpdateLapTimeDisplay();
     }
   
 
@@ -390,4 +414,23 @@ public class CarController : MonoBehaviour
         //  allow the target point for each checkpoint to be different for all cars
         RandomiseAITarget();
     }
+
+    void ResetToTrack() 
+    {
+        //  set to previous checkpoint
+        int pointToGoTo = nextCheckpoint - 1;
+        if (pointToGoTo < 0) {
+            pointToGoTo = RaceManager.instance.allCheckpoints.Length - 1;
+        }
+
+        transform.position = RaceManager.instance.allCheckpoints[pointToGoTo].transform.position;
+        rigidBody.transform.position = transform.position;
+        rigidBody.velocity = Vector3.zero;
+
+        speed = 0f;
+        turn = 0f;
+
+        resetCounter = resetCoolDown;
+    }
+
 }
