@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -824,7 +824,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4272863313221663111, guid: b7d2a2d5ff83dab4ab233a3ac35f682a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b7d2a2d5ff83dab4ab233a3ac35f682a, type: 3}
 --- !u!1001 &119551935
 PrefabInstance:
@@ -1615,7 +1616,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blade
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7753943978305058456, guid: 0ba0c1a53e4ac244bb04d41b692cc428, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0ba0c1a53e4ac244bb04d41b692cc428, type: 3}
 --- !u!1001 &271809034
 PrefabInstance:
@@ -3817,7 +3819,8 @@ PrefabInstance:
       propertyPath: isAI
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1060791460945201260, guid: 14701d24a2772a845819793817c7541a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 14701d24a2772a845819793817c7541a, type: 3}
 --- !u!1 &636242876 stripped
 GameObject:
@@ -6697,7 +6700,7 @@ GameObject:
   - component: {fileID: 1088804912}
   - component: {fileID: 1088804911}
   m_Layer: 5
-  m_Name: Count Down Display (TMP)
+  m_Name: Countdown Display (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8114,7 +8117,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: R1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7092273044229007234, guid: 3f3d5a3d167fd7d49bb932f86595960a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3f3d5a3d167fd7d49bb932f86595960a, type: 3}
 --- !u!4 &1335958152 stripped
 Transform:
@@ -8437,13 +8441,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371569004}
-  m_LocalRotation: {x: 0, y: 0.8890171, z: 0, w: 0.45787397}
-  m_LocalPosition: {x: 33.5, y: 0, z: -9.7}
+  m_LocalRotation: {x: -0.012260906, y: 0.9534491, z: 0.033543136, w: 0.29943183}
+  m_LocalPosition: {x: 29, y: 0.25, z: -5.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 409754507}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 125.5, z: 0}
+  m_LocalEulerAnglesHint: {x: -4.089, y: 145.137, z: -0.189}
 --- !u!65 &1371569006
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8721,7 +8725,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Aero
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5969927280705237296, guid: 1110057ca4fe60440b729abf10d7dd5f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1110057ca4fe60440b729abf10d7dd5f, type: 3}
 --- !u!1 &1401747059 stripped
 GameObject:
@@ -11625,7 +11630,7 @@ MonoBehaviour:
   rubberBandAccel: 0.5
   isStarting: 0
   timeBetweenStartCount: 1
-  countDownCurrent: 3
+  countdownCurrent: 3
 --- !u!4 &1931094262
 Transform:
   m_ObjectHideFlags: 0
@@ -11927,7 +11932,7 @@ MonoBehaviour:
   bestLapTimeText: {fileID: 1645286551}
   currentLapTimeText: {fileID: 580619469}
   positionText: {fileID: 1021424170}
-  countDownText: {fileID: 1088804911}
+  countdownText: {fileID: 1088804911}
   goPromptText: {fileID: 1194230002}
 --- !u!1 &2007260692
 GameObject:
