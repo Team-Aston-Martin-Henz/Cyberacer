@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DisableOverTime : MonoBehaviour
 {
-    public float timeToDisable;
+    public float timeToDisable = 1.5f;
 
     // Update is called once per frame
     void Update()
