@@ -47,20 +47,20 @@ public class CarController : MonoBehaviour
     // boolean to indicate if the car is AI
     public bool isAI;
 
-    //  Next point for the AI to move towards to
+    // next point for the AI to move towards to
     public int currentTarget;
     private Vector3 targetPoint;
 
-    //  AI Car Property
+    // AI car variables
     public float aiAccelerateSpeed = 1f;
-    public float aiTurnSpeed = .8f;     //  The preset speed allocated to AI when it comes to turning
-    public float aiReachPointRange = 5f;    //  Allowance given to be away from centre of checkpoints
+    public float aiTurnSpeed = .8f;
+    public float aiReachPointRange = 5f;    // Allowance given to be away from centre of checkpoints
     public float aiPointVariance = 3f;
     public float aiMaxTurn = 15f;
     private float aiSpeedInput;
     private float aiSpeedMod;
 
-    //  Reset Cooldown
+    // Reset Cooldown
     public float resetCoolDown = 2f;
     private float resetCounter;
 
@@ -72,14 +72,17 @@ public class CarController : MonoBehaviour
         // setting the drag on ground to be equal to that of the sphere
         dragOnGround = rigidBody.drag;
 
-        //  for AI cars
+
+
+        /*---------------------------------------------------------------------------------*/
+        // for AI cars
         if (isAI) 
         {
-            //  referencing to the centre of checkpoint
+            // reference to the centre of checkpoint
             targetPoint = RaceManager.instance.allCheckpoints[currentTarget].transform.position;
-            //  allow the target point for each checkpoint to be different for all cars
+            // allow the target point for each checkpoint to be different for all cars
             RandomiseAITarget();
-            //  randomise the speed of AI Car
+            // randomise the speed of AI Car
             aiSpeedMod = Random.Range(.8f, 1.1f);
         }
 
@@ -87,86 +90,80 @@ public class CarController : MonoBehaviour
         UIManager.instance.lapCounterText.text = currentLap + "/" + RaceManager.instance.totalLaps;
 
         resetCounter = resetCoolDown;
+        /*---------------------------------------------------------------------------------*/
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        //  If we are not in Countdown
-        if (!RaceManager.instance.isStarting)
+        // do not update the fram if we are in countdown
+        if (RaceManager.instance.isStarting)
         {
-            if (!isAI)
-            {
-                //  for player
-                UpdateSpeedAndTurn();
-
-                /// <Reset Car Position to last Checkpoint>
-                if (resetCounter > 0)
-                {
-                    resetCounter -= Time.deltaTime;
-                }
-
-                if (Input.GetKeyDown(KeyCode.R) && resetCounter <= 0)
-                {
-                    ResetToTrack();
-                }
-
-            }
-            else
-            {
-                /// <AI Speed Control and Driving Direction>
-                //  We always keep our target point's height to be aligned to the height of the cars
-                targetPoint.y = transform.position.y;
-
-                if (Vector3.Distance(transform.position, targetPoint) < aiReachPointRange)
-                {
-                    SetNextAITarget();
-                }
-
-                //  target's (x,y,z) - the car's (x,y,z) = a directional vector
-                Vector3 targetDirection = targetPoint - transform.position;
-                //  angle is the degree angle from the target point to true front of the car
-                float angle = Vector3.Angle(targetDirection, transform.forward);
-
-                //  localPosition checks if the target point is on the left or on the right
-                Vector3 localPosition = transform.InverseTransformPoint(targetPoint);
-                if (localPosition.x < 0f)
-                {
-                    angle = -angle;
-                }
-
-                //  turn angle limitation to |1| at most
-                turn = Mathf.Clamp(angle / aiMaxTurn,
-                    -1f, // -> limited to 1
-                    1f
-                    );
-
-                //  if target point's angle from true front of car does not exceed the maximum turn degree of AI
-                if (Mathf.Abs(angle) < aiMaxTurn)
-                {   //  We accelerate gradually by the preset acceleration rate
-                    aiSpeedInput = Mathf.MoveTowards(aiSpeedInput, 1f, aiAccelerateSpeed);
-                }
-                else
-                {
-                    //  We slow down gradually by the preset acceleration rate to the preset turning speed
-                    aiSpeedInput = Mathf.MoveTowards(aiSpeedInput, aiTurnSpeed, aiAccelerateSpeed);
-                }
-
-                speed = aiSpeedMod * aiSpeedInput * forwardAccel;
-            }
-
-
-            UpdateSteering();
-            UpdateDustTrail();
-            UpdateEngineSFX();
-            UpdateDriftingSFX();
-            UpdateLapTimeDisplay();
+            return;
         }
+
+        if (!isAI)
+        {
+            // for player
+            UpdateSpeedAndTurn();
+
+            // <Reset Car Position to last Checkpoint>
+            if (resetCounter > 0)
+            {
+                resetCounter -= Time.deltaTime;
+            }
+
+            if (Input.GetKeyDown(KeyCode.R) && resetCounter <= 0)
+            {
+                ResetToTrack();
+            }
+
+        }
+        else
+        {
+            // <AI Speed Control and Driving Direction>
+            // we always keep our target point's height to be aligned to the height of the cars
+            targetPoint.y = transform.position.y;
+
+            if (Vector3.Distance(transform.position, targetPoint) < aiReachPointRange)
+            {
+                SetNextAITarget();
+            }
+
+            // target's (x,y,z) - the car's (x,y,z) = a directional vector
+            Vector3 targetDirection = targetPoint - transform.position;
+            // angle from the target point to true front of the car
+            float angle = Vector3.Angle(targetDirection, transform.forward);
+
+            // checks if the target point is on the left or on the right
+            if (transform.InverseTransformPoint(targetPoint).x < 0f)
+            {
+                angle *= -1;
+            }
+
+            // turn angle limitation to |1| at most
+            turn = Mathf.Clamp(angle / aiMaxTurn, -1f, 1f);
+
+            float finalSpeed = Mathf.Abs(angle) < aiMaxTurn
+                ? 1f            // angle does not exceed maximum turn, accelerate
+                : aiTurnSpeed;  // angle exceeds maximum turn, slow down till preset turning speed
+
+            aiSpeedInput = Mathf.MoveTowards(aiSpeedInput, finalSpeed, aiAccelerateSpeed);
+
+            speed = aiSpeedMod * aiSpeedInput * forwardAccel;
+        }
+
+
+        UpdateSteering();
+        UpdateDustTrail();
+        UpdateEngineSFX();
+        UpdateDriftingSFX();
+        UpdateLapTimeDisplay();
     }
   
 
-    // update per delta time
+    // Update per delta time
     private void FixedUpdate()
     {
         FixedUpdateInclination();
@@ -350,19 +347,24 @@ public class CarController : MonoBehaviour
                 nextCheckpoint = 0;
                 LapCompleted();
             }
-        }
 
-        if (isAI) 
-        {
-            if (cpNumber == currentTarget) {
+            if (isAI)
+            {
                 SetNextAITarget();
             }
+
         }
     }
 
 
     public void LapCompleted()
     {
+        // do not update the lap if car is an AI
+        if (isAI)
+        {
+            return;
+        }
+
         currentLap++;
 
         // update best lap time
@@ -373,17 +375,15 @@ public class CarController : MonoBehaviour
 
         // reset lap time to 0 for a new lap
         lapTime = 0f;
-        if (!isAI)
-        {
-            // display best lap time
-            var ts = System.TimeSpan.FromSeconds(bestLapTime);
-            UIManager.instance.bestLapTimeText.text =
-                string.Format("{0:00}M{1:00}.{2:000}S", ts.Minutes, ts.Seconds, ts.Milliseconds);
+        // display best lap time
+        var ts = System.TimeSpan.FromSeconds(bestLapTime);
+        UIManager.instance.bestLapTimeText.text =
+            string.Format("{0:00}M{1:00}.{2:000}S", ts.Minutes, ts.Seconds, ts.Milliseconds);
 
-            // display updated lap count
-            UIManager.instance.lapCounterText.text = currentLap + "/" + RaceManager.instance.totalLaps;
-        }
+        // display updated lap count
+        UIManager.instance.lapCounterText.text = currentLap + "/" + RaceManager.instance.totalLaps;
     }
+
 
     public void RandomiseAITarget() 
     {
@@ -394,21 +394,23 @@ public class CarController : MonoBehaviour
             );
     }
 
+
     public void SetNextAITarget() 
     {
         currentTarget++;
 
-        //  Reset to 0 once we finish
+        // reset target to 0 once we finish
         if (currentTarget >= RaceManager.instance.allCheckpoints.Length)
         {
             currentTarget = 0;
         }
 
-        //  referencing to the centre of checkpoint
+        // reference to the centre of checkpoint
         targetPoint = RaceManager.instance.allCheckpoints[currentTarget].transform.position;
-        //  allow the target point for each checkpoint to be different for all cars
+        // allow the target point for each checkpoint to be different for all cars
         RandomiseAITarget();
     }
+
 
     void ResetToTrack() 
     {
@@ -427,5 +429,4 @@ public class CarController : MonoBehaviour
 
         resetCounter = resetCoolDown;
     }
-
 }
