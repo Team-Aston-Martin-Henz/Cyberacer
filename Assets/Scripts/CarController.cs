@@ -117,6 +117,7 @@ public class CarController : MonoBehaviour
     // Update per delta time
     private void FixedUpdate()
     {
+        if (RaceManager.instance.isStarting) return;
         FixedUpdateInclination();
         FixedUpdateCarMovement();
     }
@@ -224,7 +225,6 @@ public class CarController : MonoBehaviour
             emissionModule.rateOverTime = emissionRate;
         }
     }
-
 
     private void UpdateEngineSFX()
     {

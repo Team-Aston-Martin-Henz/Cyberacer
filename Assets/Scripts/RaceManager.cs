@@ -30,6 +30,14 @@ public class RaceManager : MonoBehaviour
     private float startCounter;
     public int countdownCurrent = 3;
 
+    //  randomised player and AI starting position
+    public int playerStartPosition;
+    public int aiNumberToSpawn;
+    public Transform[] startPoints;
+
+    public List<CarController> carsToSpawn = new List<CarController>();
+
+
     // Awake function happens every time an object is activated or deactivated in scene
     // Awake() happens before Start()
     private void Awake()
@@ -50,8 +58,34 @@ public class RaceManager : MonoBehaviour
         isStarting = true;
         startCounter = timeBetweenStartCount;
         UIManager.instance.countdownText.text = countdownCurrent + "!";
-    }
 
+
+        /// <NEW: CH9:L52>    
+        /// Randomisation for player Car and AI Car
+        playerStartPosition = Random.Range(0, aiNumberToSpawn + 1);     //  Total number of AI + Player's position
+        playerCar.transform.position = startPoints[playerStartPosition].position;
+        playerCar.rigidBody.transform.position = startPoints[playerStartPosition].position;
+
+        for (int i = 0; i < aiNumberToSpawn + 1; i++) 
+        {
+            if (i != playerStartPosition) 
+            {
+                int selectedCar = Random.Range(0, carsToSpawn.Count);
+
+                //  Create the AI Car in the scene at its starting position
+                //  Instantiate(GameObject, locationInfo, rotationInfo)
+                allAICars.Add(Instantiate(carsToSpawn[selectedCar], startPoints[i].position, startPoints[i].rotation));
+
+                //  If there is not enough AI cars to spawn, then we allow duplication
+                if (carsToSpawn.Count > aiNumberToSpawn - i) 
+                {
+                    carsToSpawn.RemoveAt(selectedCar);
+                }
+
+            }
+        }
+    }
+    
 
     // Update is called once per frame
     void Update()
