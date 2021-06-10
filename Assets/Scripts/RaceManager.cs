@@ -34,9 +34,9 @@ public class RaceManager : MonoBehaviour
     public int playerStartPosition;
     public int aiNumberToSpawn;
     public Transform[] startPoints;
-
     public List<CarController> carsToSpawn = new List<CarController>();
 
+    public bool raceCompleted;
 
     // Awake function happens every time an object is activated or deactivated in scene
     // Awake() happens before Start()
@@ -62,9 +62,9 @@ public class RaceManager : MonoBehaviour
 
         /// <NEW: CH9:L52>    
         /// Randomisation for player Car and AI Car
-        playerStartPosition = Random.Range(0, aiNumberToSpawn + 1);     //  Total number of AI + Player's position
-        playerCar.transform.position = startPoints[playerStartPosition].position;
-        playerCar.rigidBody.transform.position = startPoints[playerStartPosition].position;
+        playerStartPosition = Random.Range(0, aiNumberToSpawn + 1);     //  Total number of position (AI + Player)
+        playerCar.transform.position = startPoints[playerStartPosition].position;   //  Alignment   
+        playerCar.rigidBody.transform.position = startPoints[playerStartPosition].position; //  Alignment
 
         for (int i = 0; i < aiNumberToSpawn + 1; i++) 
         {
@@ -198,4 +198,10 @@ public class RaceManager : MonoBehaviour
                 rubberBandAccel * Time.deltaTime
         );
     }
+
+    public void FinishRace() 
+    {
+        raceCompleted = true;
+    }
+
 }

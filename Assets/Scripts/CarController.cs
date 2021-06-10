@@ -367,17 +367,40 @@ public class CarController : MonoBehaviour
             bestLapTime = lapTime;
         }
 
-        // reset lap time to 0 for a new lap
-        lapTime = 0f;
-        // display best lap time
-        var ts = System.TimeSpan.FromSeconds(bestLapTime);
-        UIManager.instance.bestLapTimeText.text =
-            string.Format("{0:00}M{1:00}.{2:000}S", ts.Minutes, ts.Seconds, ts.Milliseconds);
+        //  When we haven't complete our lap
+        if (currentLap <= RaceManager.instance.totalLaps)
+        {
+            // reset lap time to 0 for a new lap
+            lapTime = 0f;
+            // display best lap time
+            var ts = System.TimeSpan.FromSeconds(bestLapTime);
+            UIManager.instance.bestLapTimeText.text =
+                string.Format("{0:00}M{1:00}.{2:000}S", ts.Minutes, ts.Seconds, ts.Milliseconds);
 
-        // display updated lap count
-        UIManager.instance.lapCounterText.text = currentLap + "/" + RaceManager.instance.totalLaps;
+            // display updated lap count
+            UIManager.instance.lapCounterText.text = currentLap + "/" + RaceManager.instance.totalLaps;
+        }
+        //  When we completed our lap
+        else 
+        {
+            if (!isAI) 
+            {
+                isAI = true;
+                aiLevel = 1f;
+                // reference to the centre of checkpoint
+                targetPoint = RaceManager.instance.allCheckpoints[currentTarget].transform.position;
+                // allow the target point for each checkpoint to be different for all cars
+                RandomiseAITarget();
+
+                // display best lap time
+                var ts = System.TimeSpan.FromSeconds(bestLapTime);
+                UIManager.instance.bestLapTimeText.text =
+                    string.Format("{0:00}M{1:00}.{2:000}S", ts.Minutes, ts.Seconds, ts.Milliseconds);
+
+                RaceManager.instance.FinishRace();
+            }
+        }
     }
-
 
     private void SetNextAITarget() 
     {
