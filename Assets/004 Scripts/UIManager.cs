@@ -13,6 +13,9 @@ public class UIManager : MonoBehaviour
     public TMP_Text positionText;
     public TMP_Text countdownText;
     public TMP_Text goPromptText;
+    public TMP_Text raceResultText;
+
+    public GameObject resultsScreen;
 
     private void Awake()
     {
@@ -29,5 +32,10 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ExitRace() 
+    {
+        RaceManager.instance.ExitRace();
     }
 }
