@@ -53,6 +53,9 @@ public class RaceManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        totalLaps = RaceInfoManager.instance.noOfLap;
+        aiNumberToSpawn = RaceInfoManager.instance.noOfAI;
+
         for (int i = 0; i < allCheckpoints.Length; i++)
         {
             allCheckpoints[i].cpNumber = i;
@@ -62,12 +65,12 @@ public class RaceManager : MonoBehaviour
         startCounter = timeBetweenStartCount;
         UIManager.instance.countdownText.text = "-" + countdownCurrent + "-";
 
-
-        /// <NEW: CH9:L52>    
-        /// Randomisation for player Car and AI Car
         playerStartPosition = Random.Range(0, aiNumberToSpawn + 1);     //  Total number of position (AI + Player)
-        playerCar.transform.position = startPoints[playerStartPosition].position;   //  Alignment   
-        playerCar.rigidBody.transform.position = startPoints[playerStartPosition].position; //  Alignment
+        playerCar = Instantiate(RaceInfoManager.instance.racerToUse, startPoints[playerStartPosition].position, startPoints[playerStartPosition].rotation); // initialisation + Alignment
+        playerCar.isAI = false;
+        playerCar.GetComponent<AudioListener>().enabled = true;
+
+        CameraSwitcher.instance.SetTarget(playerCar);
 
         for (int i = 0; i < aiNumberToSpawn + 1; i++) 
         {
@@ -87,6 +90,8 @@ public class RaceManager : MonoBehaviour
 
             }
         }
+
+        UIManager.instance.positionText.text = (playerStartPosition + 1) + "/" + (allAICars.Count + 1);
     }
     
 
@@ -231,5 +236,7 @@ public class RaceManager : MonoBehaviour
     {
         SceneManager.LoadScene(raceCompleteScene);
     }
+
+
 
 }

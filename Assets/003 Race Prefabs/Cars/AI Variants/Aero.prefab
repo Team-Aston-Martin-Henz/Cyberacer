@@ -20042,7 +20042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 5969927280866616741}
-  maxSpeed: 30
+  maxSpeed: 25
   forwardAccel: 8
   reverseAccel: 4
   turnStrength: 180

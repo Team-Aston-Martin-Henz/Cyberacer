@@ -48,6 +48,8 @@ MonoBehaviour:
   cameras:
   - {fileID: 7818291612881114659}
   - {fileID: 1617835323962277937}
+  topDownCam: {fileID: 7818291613768912686}
+  cineCam: {fileID: 1617835323252339339}
 --- !u!1 &1617835323252339338
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,6 +522,10 @@ PrefabInstance:
     - target: {fileID: 11421108, guid: 5c50f0ce5f5a9ec4ea3d12b0c31b4027, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11431870, guid: 5c50f0ce5f5a9ec4ea3d12b0c31b4027, type: 3}
+      propertyPath: _cellSize
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c50f0ce5f5a9ec4ea3d12b0c31b4027, type: 3}

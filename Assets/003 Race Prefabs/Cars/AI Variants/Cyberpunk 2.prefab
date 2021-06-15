@@ -5674,7 +5674,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7fa2363efb9e3134caf6c64fce146e3b, type: 2}
+  - {fileID: 6467688520833823870, guid: 8f8a209d195bab5439fbbc0dfab9baa1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10635,7 +10635,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a8c079202ff96a54180732236c5b0fad, type: 2}
+  - {fileID: 6467688520833823870, guid: 8f8a209d195bab5439fbbc0dfab9baa1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15566,7 +15566,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7fa2363efb9e3134caf6c64fce146e3b, type: 2}
+  - {fileID: 6467688520833823870, guid: 8f8a209d195bab5439fbbc0dfab9baa1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15836,7 +15836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 4535594476242227353}
-  maxSpeed: 30
+  maxSpeed: 25
   forwardAccel: 8
   reverseAccel: 4
   turnStrength: 180
@@ -20640,7 +20640,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a8c079202ff96a54180732236c5b0fad, type: 2}
+  - {fileID: 6467688520833823870, guid: 8f8a209d195bab5439fbbc0dfab9baa1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
