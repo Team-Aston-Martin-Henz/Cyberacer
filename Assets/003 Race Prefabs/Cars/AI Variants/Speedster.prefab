@@ -5114,8 +5114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 4561351072411020864}
-  maxSpeed: 30
-  forwardAccel: 10
+  maxSpeed: 25
+  forwardAccel: 8
   reverseAccel: 4
   turnStrength: 180
   groundRayPoint1: {fileID: 4561351073273947973}

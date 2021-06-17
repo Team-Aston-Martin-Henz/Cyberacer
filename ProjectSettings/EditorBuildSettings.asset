@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/007 Scenes/UI/Main Memu.unity
+    path: Assets/007 Scenes/UI/Main Menu.unity
     guid: cd6b31da9282a6447a0521dfd787528f
   - enabled: 1
     path: Assets/007 Scenes/Tracks/Track 1/Track 1.unity
@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/007 Scenes/Tracks/Origin Track/Test Track 0.unity
     guid: a1c046ef6a0ea004784c3bb63dd6f8c5
+  - enabled: 1
+    path: Assets/007 Scenes/Tracks/Pixel Track 1/Pixel Track.unity
+    guid: a2b4f2cefe865b74db1d9bddd938126f
   m_configObjects: {}
