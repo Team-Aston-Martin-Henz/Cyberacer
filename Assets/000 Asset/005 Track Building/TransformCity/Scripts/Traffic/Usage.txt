@@ -1,0 +1,12 @@
+'High City' background traffic usage:  
+
+1. make new GameObject;
+2. add HCTraffic.cs on it;
+3. add children GO's - car traffic spawn points;
+4. add vehicles prefabs to script;
+5. adjust params on HCTraffic.cs;
+6. add HCVehicle.cs script to your vehicles;
+done.
+
+IL.ranch, 2020.
+
