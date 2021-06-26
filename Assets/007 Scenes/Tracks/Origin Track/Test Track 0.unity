@@ -5152,7 +5152,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 384520739}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d7a1356f53c1945860c9c21430fe90, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c50eb909902e48b3a2bc8a5a737b550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 491112115}
@@ -5177,23 +5177,9 @@ MonoBehaviour:
   - {fileID: 230572741}
   maxEmissionRate: 25
   emissionFadeRate: 20
-  engineSFX: {fileID: 0}
-  driftingSFX: {fileID: 0}
+  engineSFX: {fileID: 1929709872}
+  driftingSFX: {fileID: 1348180452}
   driftingFadeRate: 2
-  nextCheckpoint: 0
-  currentLap: 0
-  lapTime: 0
-  bestLapTime: 0
-  isAI: 0
-  currentTarget: 0
-  aiAccel: 1
-  aiTurnSpeed: 0.8
-  aiReachPointRange: 5
-  aiPointVariance: 3
-  aiMaxTurn: 15
-  aiLevelLowBound: 0.8
-  aiLevelHighBound: 1.1
-  resetCoolDown: 2
 --- !u!81 &384520742
 AudioListener:
   m_ObjectHideFlags: 0
@@ -5351,7 +5337,7 @@ GameObject:
   - component: {fileID: 532795366}
   - component: {fileID: 532795365}
   - component: {fileID: 532795364}
-  - component: {fileID: 532795367}
+  - component: {fileID: 532795368}
   m_Layer: 0
   m_Name: Top-Down Camera
   m_TagString: Untagged
@@ -5424,7 +5410,7 @@ Transform:
   m_Father: {fileID: 1434074622}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 42.315, y: -123.853, z: 5.761}
---- !u!114 &532795367
+--- !u!114 &532795368
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5433,13 +5419,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 532795363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dba92132a64f6d144a43c261ce93948e, type: 3}
+  m_Script: {fileID: 11500000, guid: abcc0a1585f304354bf3591adca3ec21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 384520741}
-  minDistance: 15
+  minDistance: 25
   maxDistance: 35
-  startTargetOffset: {fileID: 0}
+  startTargetOffset: {fileID: 491112111}
 --- !u!4 &541399744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 4243275ff5130a5438ef97223ee76672, type: 3}
@@ -11462,7 +11448,7 @@ MonoBehaviour:
   - {fileID: 963194225}
   - {fileID: 532795363}
   topDownCam: {fileID: 0}
-  cineCam: {fileID: 0}
+  cineCam: {fileID: 1463295947}
 --- !u!4 &1434074622
 Transform:
   m_ObjectHideFlags: 0
