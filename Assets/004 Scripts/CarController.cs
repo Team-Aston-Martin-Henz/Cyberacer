@@ -234,6 +234,13 @@ public class CarController : MonoBehaviour
             return;
         }
 
+        if (UIManager.instance.isPaused)
+        {
+            engineSFX.volume = 0f;
+            return;
+        }
+
+        engineSFX.volume = 1f;
         engineSFX.pitch = 1f + (rigidBody.velocity.magnitude / maxSpeed) * 2f;
     }
 
@@ -245,6 +252,12 @@ public class CarController : MonoBehaviour
             Debug.Log("Drifting SFX not found.");
             return;
         }   
+
+        if (UIManager.instance.isPaused)
+        {
+            driftingSFX.volume = 0f;
+            return;
+        }
 
         if (!isGrounded) return;
 
