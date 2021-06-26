@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43595704, g: 0.47411525, b: 0.51357865, a: 1}
+  m_IndirectSpecularColor: {r: 0.4359568, g: 0.4741155, b: 0.5135788, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5155,18 +5155,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d7a1356f53c1945860c9c21430fe90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theRB: {fileID: 491112115}
+  rigidBody: {fileID: 491112115}
   maxSpeed: 30
   forwardAccel: 8
   reverseAccel: 4
   turnStrength: 180
-  groundRayPoint: {fileID: 1375014838}
+  groundRayPoint1: {fileID: 1375014838}
   groundRayPoint2: {fileID: 1630420821}
-  whatIsGround:
+  groundLayer:
     serializedVersion: 2
     m_Bits: 64
   groundrayLength: 0.75
-  gravityMod: 10
+  gravity: -10
   leftFrontWheel: {fileID: 748791283}
   rightFrontWheel: {fileID: 1087603870}
   maxWheelTurn: 25
@@ -5175,11 +5175,25 @@ MonoBehaviour:
   - {fileID: 1584336284}
   - {fileID: 1175328945}
   - {fileID: 230572741}
-  maxEmission: 25
-  emissionFadeSpeed: 50
-  engineSound: {fileID: 1929709872}
-  driftingSound: {fileID: 1348180452}
-  driftingFadeSpeed: 2
+  maxEmissionRate: 25
+  emissionFadeRate: 20
+  engineSFX: {fileID: 0}
+  driftingSFX: {fileID: 0}
+  driftingFadeRate: 2
+  nextCheckpoint: 0
+  currentLap: 0
+  lapTime: 0
+  bestLapTime: 0
+  isAI: 0
+  currentTarget: 0
+  aiAccel: 1
+  aiTurnSpeed: 0.8
+  aiReachPointRange: 5
+  aiPointVariance: 3
+  aiMaxTurn: 15
+  aiLevelLowBound: 0.8
+  aiLevelHighBound: 1.1
+  resetCoolDown: 2
 --- !u!81 &384520742
 AudioListener:
   m_ObjectHideFlags: 0
@@ -5324,7 +5338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cfcee0848b55df4e811e8c38df89af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay: {fileID: 1053546913}
+  collisionSFX: {fileID: 0}
   groundLayerNo: 6
 --- !u!1 &532795363
 GameObject:
@@ -5425,6 +5439,7 @@ MonoBehaviour:
   target: {fileID: 384520741}
   minDistance: 15
   maxDistance: 35
+  startTargetOffset: {fileID: 0}
 --- !u!4 &541399744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 4243275ff5130a5438ef97223ee76672, type: 3}
@@ -11444,8 +11459,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameras:
-  - {fileID: 532795363}
   - {fileID: 963194225}
+  - {fileID: 532795363}
+  topDownCam: {fileID: 0}
+  cineCam: {fileID: 0}
 --- !u!4 &1434074622
 Transform:
   m_ObjectHideFlags: 0

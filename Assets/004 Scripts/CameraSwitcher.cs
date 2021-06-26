@@ -22,7 +22,10 @@ public class CameraSwitcher : MonoBehaviour
 
     void Start()
     {
-        
+        cameras[0].SetActive(true);
+        for (int i = 1; i < cameras.Length; i++) {
+            cameras[i].SetActive(false);
+        }
     }
 
 

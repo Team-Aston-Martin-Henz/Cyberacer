@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1368,6 +1368,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cpNumber: 0
+--- !u!1 &235784997 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7637775441475140207, guid: 744081e9e0da22241a4897e41c801beb, type: 3}
+  m_PrefabInstance: {fileID: 1372830594978517762}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &244857191 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 7c16b94cf88150a4a9b0a48148025bfd, type: 3}
@@ -4481,6 +4486,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 7c16b94cf88150a4a9b0a48148025bfd, type: 3}
   m_PrefabInstance: {fileID: 561076242}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &736625112 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7637775441922300157, guid: 744081e9e0da22241a4897e41c801beb, type: 3}
+  m_PrefabInstance: {fileID: 1372830594978517762}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &769904936
 PrefabInstance:
@@ -11887,6 +11897,8 @@ MonoBehaviour:
   goPromptText: {fileID: 1194230002}
   raceResultText: {fileID: 857082729}
   resultsScreen: {fileID: 1237887022}
+  pauseScreen: {fileID: 0}
+  isPaused: 0
 --- !u!1 &2007260692
 GameObject:
   m_ObjectHideFlags: 0
@@ -12880,6 +12892,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera Switcher
       objectReference: {fileID: 0}
+    - target: {fileID: 7637775442390812785, guid: 744081e9e0da22241a4897e41c801beb, type: 3}
+      propertyPath: cameras.Array.data[0]
+      value: 
+      objectReference: {fileID: 736625112}
+    - target: {fileID: 7637775442390812785, guid: 744081e9e0da22241a4897e41c801beb, type: 3}
+      propertyPath: cameras.Array.data[1]
+      value: 
+      objectReference: {fileID: 235784997}
     - target: {fileID: 7637775442390812786, guid: 744081e9e0da22241a4897e41c801beb, type: 3}
       propertyPath: m_RootOrder
       value: 3
