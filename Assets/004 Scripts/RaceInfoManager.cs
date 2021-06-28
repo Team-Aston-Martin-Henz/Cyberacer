@@ -7,9 +7,16 @@ public class RaceInfoManager : MonoBehaviour
     public static RaceInfoManager instance;
 
     public string trackToLoad;
+    public string practiceTrackToLoad;
     public CarController racerToUse;
     public int noOfAI;
     public int noOfLap;
+
+    public bool enteredRace;
+    public Sprite trackSprite;
+    public Sprite racerSprite;
+
+    public string trackToUnlock;
 
     public void Awake()
     {
@@ -25,16 +32,4 @@ public class RaceInfoManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-        instance = this;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
