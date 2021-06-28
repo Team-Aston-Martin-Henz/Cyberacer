@@ -772,7 +772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackSceneName: Pixel Track
   trackImage: {fileID: 1234215203}
-  raceLap: 1
+  raceLap: 4
   unlockedText: {fileID: 918816661}
   trackToUnlockOnWin: Pixel Track 2
 --- !u!1 &144679367
@@ -959,11 +959,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5149609544503176331, guid: cdc7ce3b314567d4aba2c6b7e4736659, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -657.43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5149609544503176331, guid: cdc7ce3b314567d4aba2c6b7e4736659, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -414
+      value: -441
       objectReference: {fileID: 0}
     - target: {fileID: 5149609544503176331, guid: cdc7ce3b314567d4aba2c6b7e4736659, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1777,11 +1777,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5149609544503176331, guid: cdc7ce3b314567d4aba2c6b7e4736659, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -657.43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5149609544503176331, guid: cdc7ce3b314567d4aba2c6b7e4736659, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -414
+      value: -439
       objectReference: {fileID: 0}
     - target: {fileID: 5149609544503176331, guid: cdc7ce3b314567d4aba2c6b7e4736659, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2911,7 +2911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5149609544503176331, guid: cdc7ce3b314567d4aba2c6b7e4736659, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -657.43
+      value: -435
       objectReference: {fileID: 0}
     - target: {fileID: 5149609544503176331, guid: cdc7ce3b314567d4aba2c6b7e4736659, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8622,7 +8622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackSceneName: Test Track 0
   trackImage: {fileID: 26158707}
-  raceLap: 4
+  raceLap: 10
   unlockedText: {fileID: 735549951}
   trackToUnlockOnWin: 
 --- !u!114 &1011878938
@@ -9092,7 +9092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5149609544503176331, guid: cdc7ce3b314567d4aba2c6b7e4736659, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000015259
+      value: 435.00003
       objectReference: {fileID: 0}
     - target: {fileID: 5149609544503176331, guid: cdc7ce3b314567d4aba2c6b7e4736659, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -13665,7 +13665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 45236501480518892, guid: 3e7a28f967af8a44c836048594836e0e, type: 3}
       propertyPath: noOfLap
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 45236501480518892, guid: 3e7a28f967af8a44c836048594836e0e, type: 3}
       propertyPath: racerToUse

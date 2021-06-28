@@ -259,7 +259,7 @@ public class CarController : MonoBehaviour
             return;
         }   
 
-        if (!isGrounded) return;
+        if (!isGrounded || speed == 0f) return;
 
         if (Mathf.Abs(turn) > .5f)
         {
