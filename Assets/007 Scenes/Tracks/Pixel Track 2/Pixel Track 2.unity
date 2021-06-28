@@ -16825,7 +16825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7818291612888152467, guid: 76ff283de6cd2f14cace44497b57a1f9, type: 3}
       propertyPath: _cellSize
-      value: 0.35
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7818291613146712610, guid: 76ff283de6cd2f14cace44497b57a1f9, type: 3}
       propertyPath: _cellSize
@@ -71066,8 +71066,8 @@ MonoBehaviour:
   allAICars: []
   playerPosition: 0
   timeBetweenPositionCheck: 0.2
-  aiDefaultSpeed: 20
-  playerDefaultSpeed: 20
+  aiDefaultSpeed: 25
+  playerDefaultSpeed: 25
   rubberBandSpeedMod: 3.5
   rubberBandAccel: 0.5
   isStarting: 0
