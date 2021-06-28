@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject resultsScreen;
     public GameObject pauseScreen;
+    public GameObject trackUnlockedMessage;
 
     public bool isPaused;
 

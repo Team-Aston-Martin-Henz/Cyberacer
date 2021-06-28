@@ -215,6 +215,14 @@ public class RaceManager : MonoBehaviour
         {
             case 1:
                 UIManager.instance.raceResultText.text = "You Finished 1st! Great XD";
+                if (RaceInfoManager.instance.trackToUnlock != "")
+                {
+                    if (!PlayerPrefs.HasKey(RaceInfoManager.instance.trackToUnlock + "_unlocked"))
+                    {
+                        PlayerPrefs.SetInt(RaceInfoManager.instance.trackToUnlock + "_unlocked", 1);
+                        UIManager.instance.trackUnlockedMessage.SetActive(true);
+                    }
+                }
                 break;
 
             case 2:

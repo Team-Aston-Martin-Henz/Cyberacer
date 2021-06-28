@@ -20106,6 +20106,7 @@ MonoBehaviour:
     m_Bits: 64
   groundrayLength: 0.75
   gravity: -10
+  isSpecialCar: 1
   leftFrontWheel: {fileID: 3446773692012118042}
   rightFrontWheel: {fileID: 6575784442184902781}
   maxWheelTurn: 25

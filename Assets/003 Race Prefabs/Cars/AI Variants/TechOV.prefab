@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: forwardAccel
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 843255456222021032, guid: f547675018cfa1e46ab745dc25243ae5, type: 3}
+      propertyPath: isSpecialCar
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 843255456222021033, guid: f547675018cfa1e46ab745dc25243ae5, type: 3}
       propertyPath: m_RootOrder
       value: 0

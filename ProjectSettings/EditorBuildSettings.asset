@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/007 Scenes/UI/Main Menu.unity
     guid: cd6b31da9282a6447a0521dfd787528f
-  - enabled: 1
+  - enabled: 0
     path: Assets/007 Scenes/Tracks/Track 1/Track 1.unity
     guid: cd6075878b124244090b971d8b615b2a
   - enabled: 1
@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/007 Scenes/Tracks/Pixel Track 1/Pixel Track.unity
     guid: a2b4f2cefe865b74db1d9bddd938126f
+  - enabled: 1
+    path: Assets/007 Scenes/Tracks/Pixel Track 2/Pixel Track 2.unity
+    guid: 2a641b3a950c3604d8be26d183461abe
+  - enabled: 1
+    path: Assets/007 Scenes/Tracks/Pixel Track 3/Track3_Desert.unity
+    guid: ebd4f4be8f166894cb11dd63195b1c95
   m_configObjects: {}

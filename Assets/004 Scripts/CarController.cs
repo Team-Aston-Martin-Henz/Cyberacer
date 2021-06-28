@@ -26,6 +26,7 @@ public class CarController : MonoBehaviour
     public float gravity = -10f;
 
     // wheel-turning related variables
+    public bool isSpecialCar;
     public Transform leftFrontWheel, rightFrontWheel;
     public float maxWheelTurn = 25f;
 
@@ -184,11 +185,23 @@ public class CarController : MonoBehaviour
 
     private void UpdateSteering()
     {
-        leftFrontWheel.localRotation = Quaternion.Euler(
-            leftFrontWheel.localRotation.eulerAngles.x,     //  no modification on x axis
-            (turn * maxWheelTurn) - 180,                    //  offset 180 degree
-            leftFrontWheel.localRotation.eulerAngles.z      //  no modification on y axis
-        );
+        if (isSpecialCar)
+        {
+            leftFrontWheel.localRotation = Quaternion.Euler(
+                leftFrontWheel.localRotation.eulerAngles.x,     //  no modification on x axis
+                (turn * maxWheelTurn),                    //  offset 180 degree
+                leftFrontWheel.localRotation.eulerAngles.z      //  no modification on y axis
+                );
+        }
+        else 
+        {
+            leftFrontWheel.localRotation = Quaternion.Euler(
+                leftFrontWheel.localRotation.eulerAngles.x,     //  no modification on x axis
+                (turn * maxWheelTurn) - 180,                    //  offset 180 degree
+                leftFrontWheel.localRotation.eulerAngles.z      //  no modification on y 
+                );
+        }
+
         rightFrontWheel.localRotation = Quaternion.Euler(
             rightFrontWheel.localRotation.eulerAngles.x,    //  no modification on x axis
             (turn * maxWheelTurn),                          //  no offset needed
@@ -246,7 +259,7 @@ public class CarController : MonoBehaviour
             return;
         }   
 
-        if (!isGrounded) return;
+        if (!isGrounded || speed == 0f) return;
 
         if (Mathf.Abs(turn) > .5f)
         {
