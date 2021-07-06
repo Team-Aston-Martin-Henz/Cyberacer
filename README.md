@@ -1,7 +1,6 @@
 # Cyberacer (Orbital Project AY2020/2021)
 
 ![1](https://user-images.githubusercontent.com/62177572/119687146-8bc20280-be79-11eb-9ce0-ef75124ba97c.png)
-![2](https://user-images.githubusercontent.com/62177572/119687157-8e245c80-be79-11eb-8e76-f3c2c5e850da.png)
 
 ## Motivation
 
