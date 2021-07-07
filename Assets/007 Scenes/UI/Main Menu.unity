@@ -9644,6 +9644,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1293665466 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1293665466, guid: b0bd0c1ffef60054f8e482538eeed942, type: 3}
+  m_PrefabInstance: {fileID: 375372430316345687}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc678883bf40644eb62acf7a4a4078c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1312807852
 GameObject:
   m_ObjectHideFlags: 0
@@ -13286,7 +13297,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: d424d361cf006434b900312e6d828b71, type: 2}
   m_audioClip: {fileID: 8300000, guid: bccbe55cab415294cad2ca261891f63c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.675
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -13744,18 +13755,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 949751640}
     m_Modifications:
+    - target: {fileID: 1293665464, guid: b0bd0c1ffef60054f8e482538eeed942, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1293665466}
+    - target: {fileID: 1293665464, guid: b0bd0c1ffef60054f8e482538eeed942, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1293665466}
+    - target: {fileID: 1293665464, guid: b0bd0c1ffef60054f8e482538eeed942, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HoverSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293665464, guid: b0bd0c1ffef60054f8e482538eeed942, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClickSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293665465, guid: b0bd0c1ffef60054f8e482538eeed942, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1267018446230904650, guid: b0bd0c1ffef60054f8e482538eeed942, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 949751641}
-    - target: {fileID: 1267018446230904650, guid: b0bd0c1ffef60054f8e482538eeed942, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 1267018446230904650, guid: b0bd0c1ffef60054f8e482538eeed942, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 6906690185267772551, guid: b0bd0c1ffef60054f8e482538eeed942, type: 3}
       propertyPath: m_Name
       value: Quit Button
@@ -14399,22 +14422,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 949751640}
     m_Modifications:
+    - target: {fileID: 660418051, guid: cdc7ce3b314567d4aba2c6b7e4736659, type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 660418051, guid: cdc7ce3b314567d4aba2c6b7e4736659, type: 3}
+      propertyPath: Priority
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 660418051, guid: cdc7ce3b314567d4aba2c6b7e4736659, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 660418051, guid: cdc7ce3b314567d4aba2c6b7e4736659, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5149609544503176328, guid: cdc7ce3b314567d4aba2c6b7e4736659, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 949751641}
-    - target: {fileID: 5149609544503176328, guid: cdc7ce3b314567d4aba2c6b7e4736659, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149609544503176328, guid: cdc7ce3b314567d4aba2c6b7e4736659, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenRaceSetup
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149609544503176328, guid: cdc7ce3b314567d4aba2c6b7e4736659, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 5149609544503176330, guid: cdc7ce3b314567d4aba2c6b7e4736659, type: 3}
       propertyPath: m_Name
       value: Play Button
