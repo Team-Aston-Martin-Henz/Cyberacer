@@ -291,8 +291,8 @@ public class CarController : MonoBehaviour
         lapTime += Time.deltaTime;
         // convert from seconds to time format and display it accordingly
         var ts = System.TimeSpan.FromSeconds(lapTime);
-        UIManager.instance.currentLapTimeText.text =
-            string.Format("{0:00}m{1:00}.{2:000}s", ts.Minutes, ts.Seconds, ts.Milliseconds);
+        UIManager.instance.totalTimeText.text =
+            string.Format("{0:00}:{1:00}:{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
     }
 
 
@@ -393,7 +393,7 @@ public class CarController : MonoBehaviour
             bestLapTime = lapTime;
         }
 
-        //  When we haven't complete our lap
+        //  When we haven't complete our race
         if (currentLap <= RaceManager.instance.totalLaps)
         {
             // reset lap time to 0 for a new lap
@@ -401,12 +401,12 @@ public class CarController : MonoBehaviour
             // display best lap time
             var ts = System.TimeSpan.FromSeconds(bestLapTime);
             UIManager.instance.bestLapTimeText.text =
-                string.Format("{0:00}m{1:00}.{2:000}s", ts.Minutes, ts.Seconds, ts.Milliseconds);
+                string.Format("{0:00}:{1:00}:{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
 
             // display updated lap count
             UIManager.instance.lapCounterText.text = currentLap + "/" + RaceManager.instance.totalLaps;
         }
-        //  When we completed our lap
+        //  When we completed our race
         else 
         {
             if (!isAI) 
@@ -421,7 +421,7 @@ public class CarController : MonoBehaviour
                 // display best lap time
                 var ts = System.TimeSpan.FromSeconds(bestLapTime);
                 UIManager.instance.bestLapTimeText.text =
-                    string.Format("{0:00}m{1:00}.{2:000}s", ts.Minutes, ts.Seconds, ts.Milliseconds);
+                    string.Format("{0:00}:{1:00}:{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
 
                 RaceManager.instance.FinishRace();
             }

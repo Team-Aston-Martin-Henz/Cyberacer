@@ -75271,6 +75271,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 409.49603
       objectReference: {fileID: 0}
+    - target: {fileID: 2818710939122673767, guid: b0e47c47febfb234da9a8ee555a59047, type: 3}
+      propertyPath: m_text
+      value: 00:00:00
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818710939122673767, guid: b0e47c47febfb234da9a8ee555a59047, type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818710939122673767, guid: b0e47c47febfb234da9a8ee555a59047, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818710939122673767, guid: b0e47c47febfb234da9a8ee555a59047, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818710939122673767, guid: b0e47c47febfb234da9a8ee555a59047, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2818710939621446004, guid: b0e47c47febfb234da9a8ee555a59047, type: 3}
       propertyPath: m_text
       value: 'TIME: '
@@ -75379,6 +75399,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2818710940012025041, guid: b0e47c47febfb234da9a8ee555a59047, type: 3}
+      propertyPath: totalTimeText
+      value: 
+      objectReference: {fileID: 2066249145}
     - target: {fileID: 2818710940012025052, guid: b0e47c47febfb234da9a8ee555a59047, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -75391,8 +75415,39 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 322.46603
       objectReference: {fileID: 0}
+    - target: {fileID: 2818710940187406397, guid: b0e47c47febfb234da9a8ee555a59047, type: 3}
+      propertyPath: m_text
+      value: --:--:--
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818710940187406397, guid: b0e47c47febfb234da9a8ee555a59047, type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818710940187406397, guid: b0e47c47febfb234da9a8ee555a59047, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818710940187406397, guid: b0e47c47febfb234da9a8ee555a59047, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818710940187406397, guid: b0e47c47febfb234da9a8ee555a59047, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0e47c47febfb234da9a8ee555a59047, type: 3}
+--- !u!114 &2066249145 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2818710939122673767, guid: b0e47c47febfb234da9a8ee555a59047, type: 3}
+  m_PrefabInstance: {fileID: 2066249144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2066504972
 PrefabInstance:
   m_ObjectHideFlags: 0
