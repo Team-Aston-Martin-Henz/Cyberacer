@@ -107,13 +107,13 @@ public class CarController : MonoBehaviour
         {
             UpdatePlayerSpeedAndTurn();
             CheckReset();
+            UpdateLapTimeDisplay();
         }
 
         UpdateSteering();
         UpdateDustTrail();
         UpdateEngineSFX();
         UpdateDriftingSFX();
-        UpdateLapTimeDisplay();
     }
 
 
@@ -123,6 +123,7 @@ public class CarController : MonoBehaviour
         if (RaceManager.instance.isStarting) return;
         FixedUpdateInclination();
         FixedUpdateCarMovement();
+        Debug.Log(lapTime);
     }
 
 
@@ -287,7 +288,7 @@ public class CarController : MonoBehaviour
     }
 
 
-    private void UpdateLapTimeDisplay()
+    public void UpdateLapTimeDisplay()
     {
 
         // convert from seconds to time format and display it accordingly
@@ -391,11 +392,11 @@ public class CarController : MonoBehaviour
     }
 
 
-    private void LapCompleted()
+    public void LapCompleted()
     {
         currentLap++;
-        // do not update best lap time if car is AI
-        if (isAI) return;
+        // // do not update best lap time if car is AI
+        // if (isAI) return;
 
         if (lapTime < bestLapTime || bestLapTime == 0f)
         {
@@ -408,6 +409,8 @@ public class CarController : MonoBehaviour
         {
             // reset lap time to 0 for a new lap
             lapTime = 0f;
+
+            if (isAI) return;
 
             // display best lap time
             var ts = System.TimeSpan.FromSeconds(bestLapTime);
