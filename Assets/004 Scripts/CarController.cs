@@ -43,7 +43,9 @@ public class CarController : MonoBehaviour
     // race management related variables
     public int nextCheckpoint;
     public int currentLap;
-    public float lapTime, bestLapTime;
+    public float totalTime;
+    public float lapTime;
+    public float bestLapTime;
 
     // boolean to indicate if the car is AI
     public bool isAI;
@@ -287,12 +289,19 @@ public class CarController : MonoBehaviour
 
     private void UpdateLapTimeDisplay()
     {
-        // lapTime incremented as according to the frame rate timing
-        lapTime += Time.deltaTime;
+
         // convert from seconds to time format and display it accordingly
-        var ts = System.TimeSpan.FromSeconds(lapTime);
+        var ts1 = System.TimeSpan.FromSeconds(totalTime);
         UIManager.instance.totalTimeText.text =
-            string.Format("{0:00}:{1:00}:{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+            string.Format("{0:00}:{1:00}:{2:00}", ts1.Minutes, ts1.Seconds, ts1.Milliseconds / 10);
+
+        var ts2 = System.TimeSpan.FromSeconds(lapTime);
+        UIManager.instance.lapTimeText.text =
+            string.Format("{0:00}:{1:00}:{2:00}", ts2.Minutes, ts2.Seconds, ts2.Milliseconds / 10);
+
+        // lapTime and totalTime incremented as according to the frame rate timing
+        lapTime += Time.deltaTime;
+        totalTime += Time.deltaTime;
     }
 
 
@@ -385,19 +394,21 @@ public class CarController : MonoBehaviour
     private void LapCompleted()
     {
         currentLap++;
-
         // do not update best lap time if car is AI
         if (isAI) return;
+
         if (lapTime < bestLapTime || bestLapTime == 0f)
         {
             bestLapTime = lapTime;
         }
+
 
         //  When we haven't complete our race
         if (currentLap <= RaceManager.instance.totalLaps)
         {
             // reset lap time to 0 for a new lap
             lapTime = 0f;
+
             // display best lap time
             var ts = System.TimeSpan.FromSeconds(bestLapTime);
             UIManager.instance.bestLapTimeText.text =
