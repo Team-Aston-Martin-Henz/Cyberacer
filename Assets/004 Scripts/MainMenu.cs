@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     public GameObject raceSetupPanel;
     public GameObject trackSelectPanel;
     public GameObject racerSelectPanel;
+    public GameObject settingMenu;
 
     public Image trackSelectImage;
     public Image racerSelectImage;
@@ -91,5 +92,15 @@ public class MainMenu : MonoBehaviour
     {
         racerSelectPanel.SetActive(false);
         OpenRaceSetup();
+    }
+
+    public void OpenSettingMenu() 
+    {
+        settingMenu.SetActive(true);
+    }
+
+    public void CloseSettingMenu() 
+    {
+        settingMenu.SetActive(false);
     }
 }
