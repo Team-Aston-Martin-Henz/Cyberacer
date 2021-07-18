@@ -8,8 +8,9 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
 
     public TMP_Text lapCounterText;
+    public TMP_Text lapTimeText;
     public TMP_Text bestLapTimeText;
-    public TMP_Text currentLapTimeText;
+    public TMP_Text totalTimeText;
     public TMP_Text positionText;
     public TMP_Text countdownText;
     public TMP_Text goPromptText;
