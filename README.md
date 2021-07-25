@@ -32,7 +32,7 @@
 3. Make commits, propose pull requests.
 
 ### Note:
-1. To maintain consistency and ease of development process, please ahere to the following directory structures:
+1. To maintain consistency and ease of development process, please adhere to the following directory structures:
 
 > #### Folder: Asset
 > - 000 Asset: To store external assets imported. Asset categories can be further extended. 
@@ -48,6 +48,7 @@
 2. Common issues and reminders for game development can be found in GitHub Issues (Open & Closed). Do read through them as some of the common bugs can be easily solved with the instructions given.
 
 ## User / Player Guide
+### Basic Instructions:
 1. To play/test the game, please proceed and find the respective download link below to download the latest version of the game:
 
 > Recommended (for better performance)
@@ -59,11 +60,44 @@
 
 2. Game Control:
 
+> Control
+> - Key `W`: Forward Acceleration.
+> - Key `S`: Backward Acceleration.
+> - Key `A`: Left Turn.
+> - Key `D`: Right Turn.
 > 
+> Misc:
+> - Key `Esc`: Pause Menu.
+> - Key `C`: Toggle Camera View (Top Down / Rear).
+> - Key `R`: Reset Vehicle Position.
+
+3. Common User End Issue & Resolve Method:
+
+> - Game Freeze: Restart the game.
+> - WebGL Specific - Game not loading: Accept all cookies on Unity Play website. Refresh the page a few times.
+> - WebGL Specific - Game does not have sound: Unity Play's default starts with sound being muted. Remember turn off the muted button 🔇.
+
+### Feedback:
+1. All users/players are welcomed to send your feedback for our game through the link below:
+
+> -Microsoft Form: Click here. 
 
 ## Publications
 
-- Milestone I Project Release: Click [here](https://play.unity.com/mg/other/cyberacer-v0-0-1).
-- Our Lift-Off Proposal: Click [here](https://drive.google.com/file/d/1KJE18vKNbKHPti8ZO-8X5pBRpJO8GyGg/view?usp=sharing).
-- Our Lift-Off Video: Click [here](https://drive.google.com/file/d/1Ess_AoRUsvmsphze_W3gN9Rnn3d7OoR-/view?usp=sharing).
-- Our Animated Poster: Click [here](https://drive.google.com/file/d/1Z_e2z-F6Wz_1z7LOtkqhgDTF2h-ZPelG/view?usp=sharing).
+### Lift-Off
+- Proposal: Click [here](https://drive.google.com/file/d/1KJE18vKNbKHPti8ZO-8X5pBRpJO8GyGg/view?usp=sharing).
+- Video: Click [here](https://drive.google.com/file/d/1Ess_AoRUsvmsphze_W3gN9Rnn3d7OoR-/view?usp=sharing).
+- Animated Poster: Click [here](https://drive.google.com/file/d/1Z_e2z-F6Wz_1z7LOtkqhgDTF2h-ZPelG/view?usp=sharing).
+
+### Milestone I Submission
+- README Doc: Click [here](https://docs.google.com/document/d/1TvUPG0FzB_TyE7rSZXGbYMn0IOMjJUVwukdFs2zciyM/edit?usp=sharing).
+- Project Release: Click [here](https://play.unity.com/mg/other/cyberacer-v0-0-1).
+
+### Milestone II Submission
+- README Doc: Click [here](https://docs.google.com/document/d/187S19kQoqnzhw6M8xGJxqwMgSFixD4pG_xijABVVxf0/edit?usp=sharing).
+- Video: Click [here](https://drive.google.com/file/d/1vjdiDpeub-Yg4oDxSfu7QIlX-GY4w_ZA/view?usp=sharing).
+- Poster: Click [here](https://drive.google.com/file/d/12Ss0qi1S1gH5QIIM3SZxA4VffB8ScMun/view?usp=sharing).
+- Project Release: Click [here](https://play.unity.com/mg/other/cyberacer-v0-2-5).
+
+### Milestone III Submission
+- 
