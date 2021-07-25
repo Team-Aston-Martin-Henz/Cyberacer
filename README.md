@@ -9,6 +9,14 @@
 4. Through the development process, we aim to practice software engineering skills that we have learnt so far — Object-Oriented Programming, User-Testing, Single Level of Abstraction Principle and Singleton Pattern, etc.
 5. Lastly, we aim to share the joy of game development!
 
+## Current Features:
+1. 24 Avaiable Vehicle.
+2. 3 Tracks + 1 Practice Track.
+3. Player VS Bot.
+4. Lap Record + Best Lap Record.
+5. Pixelation.
+6. Common Setting Functions.
+
 ## Developer Guide
 ### Basic Flow:
 1. To proceed with the continual development of the project, developer would need to first download the following items:
