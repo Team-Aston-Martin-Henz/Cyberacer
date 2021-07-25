@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.11432011, g: 0.19124803, b: 0.23227197, a: 1}
+  m_IndirectSpecularColor: {r: 0.114596464, g: 0.19138691, b: 0.23320302, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -42555,7 +42555,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108620888}
   m_LocalRotation: {x: 0.00097488705, y: 0.012016587, z: -0.00021246583, w: 0.99992734}
-  m_LocalPosition: {x: 0, y: 0, z: -40}
+  m_LocalPosition: {x: 0.41, y: 0.02, z: -49.68}
   m_LocalScale: {x: 62.72381, y: 10, z: 1.0719221}
   m_Children: []
   m_Father: {fileID: 409754507}
@@ -71317,7 +71317,8 @@ MonoBehaviour:
   timeBetweenPositionCheck: 0.2
   aiDefaultSpeed: 25
   playerDefaultSpeed: 25
-  rubberBandSpeedMod: 3.5
+  favourAISpeedMod: 1.2
+  favourPlayerSppedMod: 2
   rubberBandAccel: 0.5
   isStarting: 0
   timeBetweenStartCount: 1
