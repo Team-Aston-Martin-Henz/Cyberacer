@@ -22,7 +22,8 @@ public class RaceManager : MonoBehaviour
     // rubber banding related variables
     public float aiDefaultSpeed = 30f;
     public float playerDefaultSpeed = 30f;
-    public float rubberBandSpeedMod = 3.5f;
+    public float favourAISpeedMod = 1.2f;
+    public float favourPlayerSppedMod = 2f;
     public float rubberBandAccel = .5f;
 
     // starting countdown related variables
@@ -176,14 +177,14 @@ public class RaceManager : MonoBehaviour
         {
             aiCar.maxSpeed = Mathf.MoveTowards(
                 aiCar.maxSpeed,
-                aiDefaultSpeed + rubberBandSpeedMod,
+                aiDefaultSpeed + favourAISpeedMod,
                 rubberBandAccel * Time.deltaTime
             );
         }
 
         playerCar.maxSpeed = Mathf.MoveTowards(
             playerCar.maxSpeed,
-            playerDefaultSpeed - rubberBandSpeedMod,
+            playerDefaultSpeed - favourAISpeedMod,
             rubberBandAccel * Time.deltaTime
         );
     }
@@ -195,14 +196,14 @@ public class RaceManager : MonoBehaviour
         {
             aiCar.maxSpeed = Mathf.MoveTowards(
                 aiCar.maxSpeed,
-                aiDefaultSpeed - (rubberBandSpeedMod * ((float) playerPosition / ((float) allAICars.Count + 1))),
+                aiDefaultSpeed - (favourPlayerSppedMod * ((float) playerPosition / ((float) allAICars.Count + 1))),
                 rubberBandAccel * Time.deltaTime
             );
         }
 
         playerCar.maxSpeed = Mathf.MoveTowards(
                 playerCar.maxSpeed,
-                playerDefaultSpeed + (rubberBandSpeedMod * ((float) playerPosition / ((float) allAICars.Count + 1))),
+                playerDefaultSpeed + (favourPlayerSppedMod * ((float) playerPosition / ((float) allAICars.Count + 1))),
                 rubberBandAccel * Time.deltaTime
         );
     }
