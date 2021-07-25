@@ -2557,6 +2557,10 @@ PrefabInstance:
       propertyPath: noOfLap
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 45236501480518892, guid: 3e7a28f967af8a44c836048594836e0e, type: 3}
+      propertyPath: racerToUse
+      value: 
+      objectReference: {fileID: 7092273044229007233, guid: 3f3d5a3d167fd7d49bb932f86595960a, type: 3}
     - target: {fileID: 45236501480518893, guid: 3e7a28f967af8a44c836048594836e0e, type: 3}
       propertyPath: m_Name
       value: Race Info Manager

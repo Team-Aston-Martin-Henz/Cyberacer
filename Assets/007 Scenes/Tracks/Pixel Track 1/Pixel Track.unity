@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4086,7 +4086,7 @@ PrefabInstance:
     - target: {fileID: 45236501480518892, guid: 3e7a28f967af8a44c836048594836e0e, type: 3}
       propertyPath: racerToUse
       value: 
-      objectReference: {fileID: 5210787747965840098, guid: 3decfdeb41e8c9f4fbd42f766d0aff63, type: 3}
+      objectReference: {fileID: 3172717310390496627, guid: d05b7f023bce89b4dbbe93e3ede44325, type: 3}
     - target: {fileID: 45236501480518892, guid: 3e7a28f967af8a44c836048594836e0e, type: 3}
       propertyPath: racerSprite
       value: 
@@ -10520,18 +10520,30 @@ MonoBehaviour:
   - {fileID: 1981405890}
   - {fileID: 1718848204}
   carsToSpawn:
-  - {fileID: 5210787747965840098, guid: 3decfdeb41e8c9f4fbd42f766d0aff63, type: 3}
   - {fileID: 5969927280705237299, guid: 1110057ca4fe60440b729abf10d7dd5f, type: 3}
   - {fileID: 7753943978305058459, guid: 0ba0c1a53e4ac244bb04d41b692cc428, type: 3}
+  - {fileID: 6095284744126767283, guid: 4ac5a40ca35de1544bdc9c66170ac12e, type: 3}
+  - {fileID: 6095284744126767283, guid: b93d00c1f82f24140b8812f3e5f9c71a, type: 3}
   - {fileID: 2364234559968473563, guid: 1cf726354b8f94342bfcb9900ef2ce6a, type: 3}
   - {fileID: 1823546893324064654, guid: f264e8d10a60bef48bd4b35ad25f461f, type: 3}
+  - {fileID: 3172717310390496627, guid: d05b7f023bce89b4dbbe93e3ede44325, type: 3}
+  - {fileID: 2763691377095731413, guid: 24f797d4af7aaf6438646e7ec925e22b, type: 3}
+  - {fileID: 2763691377095731413, guid: 783800fc82b7b6d4caaeaa0233d05afa, type: 3}
   - {fileID: 4535594476383159311, guid: 54fd5275199c2a74fb6e33361a714d7a, type: 3}
   - {fileID: 675666003613046137, guid: b4dc704fd5b58ac46972cea4bf181d64, type: 3}
   - {fileID: 5926205676307019898, guid: 83a0288a8d89e1941b8cb1e6241d53aa, type: 3}
   - {fileID: 1060791460945201263, guid: 14701d24a2772a845819793817c7541a, type: 3}
+  - {fileID: 301147664311324942, guid: 5e4c83e73c710e14894927633bfebbf8, type: 3}
+  - {fileID: 301147664311324942, guid: 7e9202ddbd40dff4c92100d5dd6c3d75, type: 3}
   - {fileID: 4272863313221663108, guid: b7d2a2d5ff83dab4ab233a3ac35f682a, type: 3}
+  - {fileID: 5776500606032723548, guid: 308f4e665dff69f41b30ae8bd0012676, type: 3}
   - {fileID: 7092273044229007233, guid: 3f3d5a3d167fd7d49bb932f86595960a, type: 3}
+  - {fileID: 8132152758582519928, guid: d1857e95279eef54baa7b6845317e32e, type: 3}
+  - {fileID: 8132152758582519928, guid: 2b9f54f26f5c086418997e86831bd9d3, type: 3}
   - {fileID: 4561351072249641686, guid: fa62dd34bb0c7dd4081d4e5847076de9, type: 3}
+  - {fileID: 5972785863283529988, guid: 2b98337a95c5b6345817711bbb813deb, type: 3}
+  - {fileID: 3861801017778079526, guid: 93a2ae075afd5aa4392bc827023fec8f, type: 3}
+  - {fileID: 5210787747965840098, guid: 3decfdeb41e8c9f4fbd42f766d0aff63, type: 3}
   raceCompleted: 0
   raceCompleteScene: Main Menu
 --- !u!4 &1931094262
