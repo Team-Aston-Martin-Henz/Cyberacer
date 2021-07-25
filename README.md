@@ -2,14 +2,14 @@
 
 ![1](https://user-images.githubusercontent.com/62177572/119687146-8bc20280-be79-11eb-9ce0-ef75124ba97c.png)
 
-## Motivation
+## Motivation 🔥
 1. Stemming from the love of racing games and pixelated art style, Cyberacer is a pixelated racing game developed under the guidance of CP2106 Orbital - Independent Software Development Project. 
 2. By developing the game, we aim to bring joy and offer an engaging experience to casual gamers who enjoy retro racing games.
 3. We chose game development as the theme of our Orbital Project to pick up the skills and knowledge of Game Design,  C#, Unity 3D and Project Management with Git and GitHub, etc.
 4. Through the development process, we aim to practice software engineering skills that we have learnt so far — Object-Oriented Programming, User-Testing, Single Level of Abstraction Principle and Singleton Pattern, etc.
 5. Lastly, we aim to share the joy of game development!
 
-## Current Features:
+## Current Features 🎮
 1. 24 Avaiable Vehicle.
 2. 3 Tracks + 1 Practice Track.
 3. Player VS Bot.
@@ -17,21 +17,21 @@
 5. Pixelation.
 6. Common Setting Functions.
 
-## Developer Guide
-### Basic Flow:
+## Developer Guide 🧑‍💻
+### Basic Flow 🔁:
 1. To proceed with the continual development of the project, developer would need to first download the following items:
 
-> - Lastest Unity Engine
-> - Unity Hub
-> - WebGL Build Supports (Recommanded)
-> - Windows Build Supports (Recommanded)
-> - Mac Build Supports (Recommanded)
-> - GitHub Desktop
+> - Lastest Unity Engine.
+> - Unity Hub.
+> - WebGL Build Supports (Recommanded).
+> - Windows Build Supports (Recommanded).
+> - Mac Build Supports (Recommanded).
+> - GitHub Desktop.
 
 2. Create your own branch from `master` branch to implement your features ( `master` branch is the finalized branch).
 3. Make commits, propose pull requests.
 
-### Note:
+### Note 📝:
 1. To maintain consistency and ease of development process, please adhere to the following directory structures:
 
 > #### Folder: Asset
@@ -47,16 +47,16 @@
 
 2. Common issues and reminders for game development can be found in GitHub Issues (Open & Closed). Do read through them as some of the common bugs can be easily solved with the instructions given.
 
-## User / Player Guide
-### Basic Instructions:
+## User / Player Guide 🕹️
+### Basic Instructions 📜:
 1. To play/test the game, please proceed and find the respective download link below to download the latest version of the game:
 
 > Recommended (for better performance)
-> - Mac User: Click here
-> - Windows User: Click here
+> - Mac User: Click here.
+> - Windows User: Click here.
 > 
 > Normal Performance
-> - WebGL Build: Click here
+> - WebGL Build: Click here.
 
 2. Game Control:
 
@@ -77,12 +77,12 @@
 > - WebGL Specific - Game not loading: Accept all cookies on Unity Play website. Refresh the page a few times.
 > - WebGL Specific - Game does not have sound: Unity Play's default starts with sound being muted. Remember turn off the muted button 🔇.
 
-### Feedback:
+### Feedback 📋:
 1. All users/players are welcomed to send your feedback for our game through the link below:
 
 > -Microsoft Form: Click here. 
 
-## Publications
+## Publications 📰
 
 ### Lift-Off
 - Proposal: Click [here](https://drive.google.com/file/d/1KJE18vKNbKHPti8ZO-8X5pBRpJO8GyGg/view?usp=sharing).
