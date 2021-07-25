@@ -123,7 +123,6 @@ public class CarController : MonoBehaviour
         if (RaceManager.instance.isStarting) return;
         FixedUpdateInclination();
         FixedUpdateCarMovement();
-        Debug.Log(lapTime);
     }
 
 
