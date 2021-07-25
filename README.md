@@ -1,23 +1,24 @@
-# Cyberacer
+# CP2106 Independent Software Development Project - Orbital
 
 ![1](https://user-images.githubusercontent.com/62177572/119687146-8bc20280-be79-11eb-9ce0-ef75124ba97c.png)
 
-Team Aston Martin Henz - CP2106 Orbital AY 2020/2021
+## Motivation
+- Stemming from the love of racing games and pixelated art style, Cyberacer is a pixelated racing game developed under the guidance of CP2106 Orbital - Independent Software Development Project. 
+- By developing the game, we aim to bring joy and offer an engaging experience to casual gamers who enjoy retro racing games.
+- We chose game development as the theme of our Orbital Project to pick up the skills and knowledge of Game Design,  C#, Unity 3D and Project Management with Git and GitHub, etc.
+- Through the development process, we aim to practice software engineering skills that we have learnt so far — Object-Oriented Programming, User-Testing, Single Level of Abstraction Principle and Singleton Pattern, etc.
+- Lastly, we aim to share the joy of game development!
 
-## Project Deliverables
+## Tech Stack
 
-- Our latest project proposal: Click [here](https://docs.google.com/document/d/1W_IndlNVo6aEFQ42cPw6e8EyzmfCK2zPy8nlv-93GL0/edit?usp=sharing)
-- Milestone I project release: Click [here](https://play.unity.com/mg/other/cyberacer-v0-0-1)
-- Milestone II project release: Click [here](https://play.unity.com/mg/other/my-new-microgame-3792)
-- Milestone III project release: Click here
-- Our project video: Click here
-- Our animated poster: Click here
+- Unity Engine
+- C#
+- Blender
+- Asperite
 
-## Tech Stack and Dependencies
+## Publications
 
-- Unity Game Engine v2020.3.13f1 (game development)
-- C# Programming Language (scripting)
-- [Cinemachine](https://unity.com/unity/features/editor/art-and-design/cinemachine) (dynamic camera setup)
-- [Pixelation Camera](https://assetstore.unity.com/packages/vfx/shaders/fullscreen-camera-effects/pixelation-camera-65900) by Tristan Weber (pixelation VFX)
-- Git (version control)
-- GitHub Organisation (hosting for version control)
+- Milestone I Project Release: Click [here](https://play.unity.com/mg/other/cyberacer-v0-0-1)
+- Our Lift-Off Proposal: Click [here](https://drive.google.com/file/d/1KJE18vKNbKHPti8ZO-8X5pBRpJO8GyGg/view?usp=sharing)
+- Our Lift-Off Video: Click [here](https://drive.google.com/file/d/1Ess_AoRUsvmsphze_W3gN9Rnn3d7OoR-/view?usp=sharing)
+- Our Animated Poster: Click [here](https://drive.google.com/file/d/1Z_e2z-F6Wz_1z7LOtkqhgDTF2h-ZPelG/view?usp=sharing)
