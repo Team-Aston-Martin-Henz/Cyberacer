@@ -3,22 +3,59 @@
 ![1](https://user-images.githubusercontent.com/62177572/119687146-8bc20280-be79-11eb-9ce0-ef75124ba97c.png)
 
 ## Motivation
-- Stemming from the love of racing games and pixelated art style, Cyberacer is a pixelated racing game developed under the guidance of CP2106 Orbital - Independent Software Development Project. 
-- By developing the game, we aim to bring joy and offer an engaging experience to casual gamers who enjoy retro racing games.
-- We chose game development as the theme of our Orbital Project to pick up the skills and knowledge of Game Design,  C#, Unity 3D and Project Management with Git and GitHub, etc.
-- Through the development process, we aim to practice software engineering skills that we have learnt so far — Object-Oriented Programming, User-Testing, Single Level of Abstraction Principle and Singleton Pattern, etc.
-- Lastly, we aim to share the joy of game development!
+1. Stemming from the love of racing games and pixelated art style, Cyberacer is a pixelated racing game developed under the guidance of CP2106 Orbital - Independent Software Development Project. 
+2. By developing the game, we aim to bring joy and offer an engaging experience to casual gamers who enjoy retro racing games.
+3. We chose game development as the theme of our Orbital Project to pick up the skills and knowledge of Game Design,  C#, Unity 3D and Project Management with Git and GitHub, etc.
+4. Through the development process, we aim to practice software engineering skills that we have learnt so far — Object-Oriented Programming, User-Testing, Single Level of Abstraction Principle and Singleton Pattern, etc.
+5. Lastly, we aim to share the joy of game development!
 
-## Tech Stack
+## Developer Guide
+### Basic Flow:
+1. To proceed with the continual development of the project, developer would need to first download the following items:
 
-- Unity Engine
-- C#
-- Blender
-- Asperite
+> - Lastest Unity Engine
+> - Unity Hub
+> - WebGL Build Supports (Recommanded)
+> - Windows Build Supports (Recommanded)
+> - Mac Build Supports (Recommanded)
+> - GitHub Desktop
+
+2. Create your own branch from `master` branch to implement your features ( `master` branch is the finalized branch).
+3. Make commits, propose pull requests.
+
+### Note:
+1. To maintain consistency and ease of development process, please ahere to the following directory structures:
+
+> #### Folder: Asset
+> - 000 Asset: To store external assets imported. Asset categories can be further extended. 
+> - 001 Lighting Setting: To store light settings for the game. Different light settings can be further categorized according to the respective scene applied.
+> - 002 Colour Material: To store materials that were created by developers. Different materials can be further categorized according to the type of object on which the materials are applied on.
+> - 003 Race Prefabs: To store prefabs that are commonly accessed by the developer. 
+> - 004 Scripts: To store all C# scripts developed.
+> - 005 Sound Mixer: To store sound mixers.
+> - 006 TextMesh Pro: To store font-based assets. 
+> - 007 Scenes: To store scenes. Categorize according to tracks.
+> - 008 Sound: To store SFX assets.
+
+2. Common issues and reminders for game development can be found in GitHub Issues (Open & Closed). Do read through them as some of the common bugs can be easily solved with the instructions given.
+
+## User / Player Guide
+1. To play/test the game, please proceed and find the respective download link below to download the latest version of the game:
+
+> Recommended (for better performance)
+> - Mac User: Click here
+> - Windows User: Click here
+> 
+> Normal Performance
+> - WebGL Build: Click here
+
+2. Game Control:
+
+> 
 
 ## Publications
 
-- Milestone I Project Release: Click [here](https://play.unity.com/mg/other/cyberacer-v0-0-1)
-- Our Lift-Off Proposal: Click [here](https://drive.google.com/file/d/1KJE18vKNbKHPti8ZO-8X5pBRpJO8GyGg/view?usp=sharing)
-- Our Lift-Off Video: Click [here](https://drive.google.com/file/d/1Ess_AoRUsvmsphze_W3gN9Rnn3d7OoR-/view?usp=sharing)
-- Our Animated Poster: Click [here](https://drive.google.com/file/d/1Z_e2z-F6Wz_1z7LOtkqhgDTF2h-ZPelG/view?usp=sharing)
+- Milestone I Project Release: Click [here](https://play.unity.com/mg/other/cyberacer-v0-0-1).
+- Our Lift-Off Proposal: Click [here](https://drive.google.com/file/d/1KJE18vKNbKHPti8ZO-8X5pBRpJO8GyGg/view?usp=sharing).
+- Our Lift-Off Video: Click [here](https://drive.google.com/file/d/1Ess_AoRUsvmsphze_W3gN9Rnn3d7OoR-/view?usp=sharing).
+- Our Animated Poster: Click [here](https://drive.google.com/file/d/1Z_e2z-F6Wz_1z7LOtkqhgDTF2h-ZPelG/view?usp=sharing).
