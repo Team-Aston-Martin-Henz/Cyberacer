@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43950865, g: 0.48786962, b: 0.56810117, a: 1}
+  m_IndirectSpecularColor: {r: 0.43950868, g: 0.48786974, b: 0.56810135, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -16683,7 +16683,6 @@ GameObject:
   - component: {fileID: 1143387613}
   - component: {fileID: 1143387616}
   - component: {fileID: 1143387615}
-  - component: {fileID: 1143387614}
   m_Layer: 5
   m_Name: How To Play Panel
   m_TagString: Untagged
@@ -16715,20 +16714,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.041625977}
   m_SizeDelta: {x: 0, y: 0.083618}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1143387614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143387612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c05f81659081804b885a598d957b3ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: d424d361cf006434b900312e6d828b71, type: 2}
-  resolutionDropdown: {fileID: 0}
 --- !u!114 &1143387615
 MonoBehaviour:
   m_ObjectHideFlags: 0
