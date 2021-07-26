@@ -1,104 +1,124 @@
-# CP2106 Independent Software Development Project - Orbital
+# CP2106 Orbital - Independent Software Development Project
 
 ![m_merged](https://user-images.githubusercontent.com/62177572/126998324-f5531b9e-3e76-4b58-bd9a-afb64bf0a000.png)
 
 
 ## Motivation 🔥
-1. Stemming from the love of racing games and pixelated art style, Cyberacer is a pixelated racing game developed under the guidance of CP2106 Orbital - Independent Software Development Project. 
-2. By developing the game, we aim to bring joy and offer an engaging experience to casual gamers who enjoy retro racing games.
-3. We chose game development as the theme of our Orbital Project to pick up the skills and knowledge of Game Design,  C#, Unity 3D and Project Management with Git and GitHub, etc.
-4. Through the development process, we aim to practice software engineering skills that we have learnt so far — Object-Oriented Programming, User-Testing, Single Level of Abstraction Principle and Singleton Pattern, etc.
-5. Lastly, we aim to share the joy of game development!
+Stemming from the love of racing games and pixelated art style, Cyberacer is a pixelated racing game developed for CP2106 Orbital - Independent Software Development Project. 
+
+By developing the game, we aim to bring joy and offer an engaging experience to casual gamers who enjoy retro racing games. We would also like to pick up skills and knowledge related to game development, such as game design principles, C#, Unity, version control using Git and GitHub and more.
+
+Through the development process, we aim to learn and apply software engineering practices. For example, object-oriented programming, user testing, single level abstraction principle, singleton pattern and etcetera.
+
+Last but not least, we also want to simply have fun and enjoy the process of game development!
 
 ## Current Features 🎮
-1. 24 Avaiable Vehicle.
-2. 3 Tracks + 1 Practice Track.
-3. Player VS Bot.
-4. Lap Record + Best Lap Record.
-5. Pixelation.
-6. Common Setting Functions.
+1. 24 avaiable vehicles
+2. 3 tracks + 1 practice track
+3. Player vs bot.
+4. Lap time, total time and best lap time display
+5. Pixelation of scene assets
+6. Settings for gameplay
 
 ## Developer Guide 🧑‍💻
-### Basic Flow 🔁:
-1. To proceed with the continual development of the project, developer would need to first download the following items:
+### How to Contribute 💡
+1. To contribute to the development of Cyberacer, please download the following dependencies first.
+	- Unity Engine and Unity Hub (Cyberacer is built with 2020.3.13f1)
+	- WebGL / Windows / Mac build supports (recommended)
+	- Version control e.g. GitHub Desktop
 
-> - Lastest Unity Engine.
-> - Unity Hub.
-> - WebGL Build Supports (Recommanded).
-> - Windows Build Supports (Recommanded).
-> - Mac Build Supports (Recommanded).
-> - GitHub Desktop.
+2. Fork from this repository to implement your features. Please remember to fork from master branch.
+3. Commit, contribute and create pull requests!
 
-2. Create your own branch from `master` branch to implement your features ( `master` branch is the finalized branch).
-3. Make commits, propose pull requests.
+### Note 📝
+1. To maintain consistency and ease for future development, please strictly adhere to the directory structure in `Assets`:
 
-### Note 📝:
-1. To maintain consistency and ease of development process, please adhere to the following directory structures:
+	`000 Asset`: For external assets imported, asset categories can be further extended
 
-> #### Folder: Asset
-> - 000 Asset: To store external assets imported. Asset categories can be further extended. 
-> - 001 Lighting Setting: To store light settings for the game. Different light settings can be further categorized according to the respective scene applied.
-> - 002 Colour Material: To store materials that were created by developers. Different materials can be further categorized according to the type of object on which the materials are applied on.
-> - 003 Race Prefabs: To store prefabs that are commonly accessed by the developer. 
-> - 004 Scripts: To store all C# scripts developed.
-> - 005 Sound Mixer: To store sound mixers.
-> - 006 TextMesh Pro: To store font-based assets. 
-> - 007 Scenes: To store scenes. Categorize according to tracks.
-> - 008 Sound: To store SFX assets.
+	`001 Lighting Setting`: For light settings in the game, various light settings can be further categorised by usage in the respective scenes
+
+	`002 Colour Material`: For materials created by developers, different materials can be further categorised by the type of object on which the materials are applied on
+
+	`003 Race Prefabs`: For game prefabs that are commonly used by the developer 
+
+	`004 Scripts`: For all C# scripts written for the game
+
+	`005 Sound Mixer`: For sound mixers
+
+	`006 TextMesh Pro`: For font-based assets
+
+	`007 Scenes`: For different scenes, categorised according to tracks
+
+	`008 Sound`: For SFX assets.
 
 2. Common issues and reminders for game development can be found in GitHub Issues (Open & Closed). Do read through them as some of the common bugs can be easily solved with the instructions given.
 
 ## User / Player Guide 🕹️
-### Basic Instructions 📜:
-1. To play/test the game, please proceed and find the respective download link below to download the latest version of the game:
+### How to Download 💾
 
-> Recommended (for better performance)
-> - Mac User: Click here.
-> - Windows User: Click here.
-> 
-> Normal Performance
-> - WebGL Build: Click here.
+Please click on the links below to download the latest version of the game.
 
-2. Game Control:
+- For better performance on your specific platform:
+	- Mac users: click [here]()
+	- Windows users: click [here]()
+- Otherwise:
+	- WebGL build: click [here]()
 
-> Control
-> - Key `W`: Forward Acceleration.
-> - Key `S`: Backward Acceleration.
-> - Key `A`: Left Turn.
-> - Key `D`: Right Turn.
-> 
-> Misc:
-> - Key `Esc`: Pause Menu.
-> - Key `C`: Toggle Camera View (Top Down / Rear).
-> - Key `R`: Reset Vehicle Position.
+### Game Controls ⌨️
 
-3. Common User End Issue & Resolve Method:
+|      Key      |                   Usage                    |
+| :-----------: | :----------------------------------------: |
+|  `W` / `UP`   |                 Accelerate                 |
+| `S` / `DOWN`  |                  Reverse                   |
+| `A` / `LEFT`  |                 Left turn                  |
+| `D` / `RIGHT` |                 Right turn                 |
+|     `Esc`     |              Go to pause menu              |
+|      `C`      | Toggle camera angle (top-down / follow-up) |
+|      `R`      |           Reset vehicle position           |
 
-> - Game Freeze: Restart the game.
-> - WebGL Specific - Game not loading: Accept all cookies on Unity Play website. Refresh the page a few times.
-> - WebGL Specific - Game does not have sound: Unity Play's default starts with sound being muted. Remember turn off the muted button 🔇.
+All games controls can be likewise found in the `How To Play` menu in the game!
 
-### Feedback 📋:
-1. All users/players are welcomed to send your feedback for our game through the link below:
+### Troubleshooting 👨‍🔧
 
-> -Microsoft Form: Click here. 
+Below are the common user-end bugs and issues and their respective remedies:
 
-## Publications 📰
+- Game freezes
 
-### Lift-Off
-- Proposal: Click [here](https://drive.google.com/file/d/1KJE18vKNbKHPti8ZO-8X5pBRpJO8GyGg/view?usp=sharing).
-- Video: Click [here](https://drive.google.com/file/d/1Ess_AoRUsvmsphze_W3gN9Rnn3d7OoR-/view?usp=sharing).
-- Animated Poster: Click [here](https://drive.google.com/file/d/1Z_e2z-F6Wz_1z7LOtkqhgDTF2h-ZPelG/view?usp=sharing).
+	> Try restarting the game!
 
-### Milestone I Submission
-- README Doc: Click [here](https://docs.google.com/document/d/1TvUPG0FzB_TyE7rSZXGbYMn0IOMjJUVwukdFs2zciyM/edit?usp=sharing).
-- Project Release: Click [here](https://play.unity.com/mg/other/cyberacer-v0-0-1).
+- Game not loading on WebGL
 
-### Milestone II Submission
-- README Doc: Click [here](https://docs.google.com/document/d/187S19kQoqnzhw6M8xGJxqwMgSFixD4pG_xijABVVxf0/edit?usp=sharing).
-- Video: Click [here](https://drive.google.com/file/d/1vjdiDpeub-Yg4oDxSfu7QIlX-GY4w_ZA/view?usp=sharing).
-- Poster: Click [here](https://drive.google.com/file/d/12Ss0qi1S1gH5QIIM3SZxA4VffB8ScMun/view?usp=sharing).
-- Project Release: Click [here](https://play.unity.com/mg/other/cyberacer-v0-2-5).
+	> Accept all cookies on Unity Play website. Refresh the page several time if the problem persists.
 
-### Milestone III Submission
-- 
+- Game does not have sound on WebGL
+
+	> Have you tried toggling the mute button 🔇? Unity Play will start on mute by default.
+
+### Feedback 📋
+Regardless whether you are a player / user or a fellow developer, all are welcomed to send in your feedback through our [Microsoft Form](https://forms.office.com/r/bgJ8YXqMry)!
+
+## Deliverables and Publications 📰
+
+### Lift-Off 🚀 
+- Proposal: click [here](https://drive.google.com/file/d/1KJE18vKNbKHPti8ZO-8X5pBRpJO8GyGg/view?usp=sharing)
+- Video: click [here](https://drive.google.com/file/d/1Ess_AoRUsvmsphze_W3gN9Rnn3d7OoR-/view?usp=sharing)
+- Animated poster: click [here](https://drive.google.com/file/d/1Z_e2z-F6Wz_1z7LOtkqhgDTF2h-ZPelG/view?usp=sharing)
+
+### Milestone I 🎯
+- README: click [here](https://docs.google.com/document/d/1TvUPG0FzB_TyE7rSZXGbYMn0IOMjJUVwukdFs2zciyM/edit?usp=sharing)
+- Project release: click [here](https://play.unity.com/mg/other/cyberacer-v0-0-1)
+
+### Milestone II 🎯
+- README: click [here](https://docs.google.com/document/d/187S19kQoqnzhw6M8xGJxqwMgSFixD4pG_xijABVVxf0/edit?usp=sharing)
+- Video: click [here](https://drive.google.com/file/d/1vjdiDpeub-Yg4oDxSfu7QIlX-GY4w_ZA/view?usp=sharing)
+- Animated poster: click [here](https://drive.google.com/file/d/12Ss0qi1S1gH5QIIM3SZxA4VffB8ScMun/view?usp=sharing)
+- Project release: click [here](https://play.unity.com/mg/other/cyberacer-v0-2-5)
+
+### Milestone III 🎯
+- README: click [here](https://docs.google.com/document/d/1W_IndlNVo6aEFQ42cPw6e8EyzmfCK2zPy8nlv-93GL0/edit?usp=sharing)
+- Video: click here
+- Animated poster: click here
+
+### Splashdown 🪂
+
+- Coming soon...
