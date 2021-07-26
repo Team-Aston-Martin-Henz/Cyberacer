@@ -1,7 +1,5 @@
 # CP2106 Independent Software Development Project - Orbital
 
-![1](https://user-images.githubusercontent.com/62177572/119687146-8bc20280-be79-11eb-9ce0-ef75124ba97c.png)
-
 ## Motivation 🔥
 1. Stemming from the love of racing games and pixelated art style, Cyberacer is a pixelated racing game developed under the guidance of CP2106 Orbital - Independent Software Development Project. 
 2. By developing the game, we aim to bring joy and offer an engaging experience to casual gamers who enjoy retro racing games.
