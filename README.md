@@ -59,10 +59,10 @@ Last but not least, we also want to simply have fun and enjoy the process of gam
 Please click on the links below to download the latest version of the game.
 
 - For better performance on your specific platform:
-	- Mac users: click [here]()
-	- Windows users: click [here]()
+	- Mac users: click [here](https://drive.google.com/file/d/13Gx6UAcUUkhKaG6pJLCwwThExhBbucy4/view?usp=sharing)
+	- Windows users: click [here](https://drive.google.com/file/d/1BquNjua7uGiqjWi9LM8Sbtq6ckVE3Lnr/view?usp=sharing)
 - Otherwise:
-	- WebGL build: click [here]()
+	- WebGL build: click [here](https://drive.google.com/file/d/1tiaFt5Pssn1x1fbAAbO8Ga3Wabf4ROnh/view?usp=sharing)
 
 ### Game Controls ⌨️
 
@@ -116,8 +116,9 @@ Regardless whether you are a player / user or a fellow developer, all are welcom
 
 ### Milestone III 🎯
 - README: click [here](https://docs.google.com/document/d/1W_IndlNVo6aEFQ42cPw6e8EyzmfCK2zPy8nlv-93GL0/edit?usp=sharing)
-- Video: click here
-- Animated poster: click here
+- Video: click [here](https://drive.google.com/file/d/1EZprIz-77uumVl8Mtz2Jz2GDv3LgH5On/view?usp=sharing)
+- Project poster: click [here](https://drive.google.com/file/d/16RtONazyswk2sDpYM-A5f_VaSRgmN6rA/view?usp=sharing)
+- Project release: clicker [here](https://drive.google.com/file/d/13Gx6UAcUUkhKaG6pJLCwwThExhBbucy4/view?usp=sharing) for macOS, [here](https://drive.google.com/file/d/1BquNjua7uGiqjWi9LM8Sbtq6ckVE3Lnr/view?usp=sharing) for Windows
 
 ### Splashdown 🪂
 
