@@ -5227,7 +5227,7 @@ GameObject:
   - component: {fileID: 8132152758582519928}
   - component: {fileID: 8132152758582519931}
   m_Layer: 0
-  m_Name: Rogue
+  m_Name: Rogue 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5267,7 +5267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 8132152758693838062}
-  maxSpeed: 25
+  maxSpeed: 22
   forwardAccel: 8
   reverseAccel: 4
   turnStrength: 180

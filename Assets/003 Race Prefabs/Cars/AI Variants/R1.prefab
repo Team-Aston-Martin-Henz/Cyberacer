@@ -19974,7 +19974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 7092273044054848279}
-  maxSpeed: 25
+  maxSpeed: 22
   forwardAccel: 8
   reverseAccel: 4
   turnStrength: 180
@@ -19985,6 +19985,7 @@ MonoBehaviour:
     m_Bits: 64
   groundrayLength: 0.75
   gravity: -10
+  isSpecialCar: 0
   leftFrontWheel: {fileID: 4720677372039647305}
   rightFrontWheel: {fileID: 5203237339126268407}
   maxWheelTurn: 25
@@ -20000,6 +20001,7 @@ MonoBehaviour:
   driftingFadeRate: 2
   nextCheckpoint: 0
   currentLap: 1
+  totalTime: 0
   lapTime: 0
   bestLapTime: 0
   isAI: 1
