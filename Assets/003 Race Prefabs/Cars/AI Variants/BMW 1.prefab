@@ -5530,7 +5530,7 @@ GameObject:
   - component: {fileID: 6095284744126767283}
   - component: {fileID: 6095284744126767280}
   m_Layer: 0
-  m_Name: BMW
+  m_Name: BMW 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5570,7 +5570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 6095284743969322021}
-  maxSpeed: 25
+  maxSpeed: 22
   forwardAccel: 8
   reverseAccel: 4
   turnStrength: 180

@@ -4086,7 +4086,7 @@ PrefabInstance:
     - target: {fileID: 45236501480518892, guid: 3e7a28f967af8a44c836048594836e0e, type: 3}
       propertyPath: racerToUse
       value: 
-      objectReference: {fileID: 3172717310390496627, guid: d05b7f023bce89b4dbbe93e3ede44325, type: 3}
+      objectReference: {fileID: 2763691377095731413, guid: 783800fc82b7b6d4caaeaa0233d05afa, type: 3}
     - target: {fileID: 45236501480518892, guid: 3e7a28f967af8a44c836048594836e0e, type: 3}
       propertyPath: racerSprite
       value: 
@@ -10503,7 +10503,8 @@ MonoBehaviour:
   timeBetweenPositionCheck: 0.2
   aiDefaultSpeed: 25
   playerDefaultSpeed: 25
-  rubberBandSpeedMod: 3.5
+  favourAISpeedMod: 1.2
+  favourPlayerSppedMod: 2
   rubberBandAccel: 0.5
   isStarting: 0
   timeBetweenStartCount: 1

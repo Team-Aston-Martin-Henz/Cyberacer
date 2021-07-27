@@ -15836,7 +15836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 4535594476242227353}
-  maxSpeed: 25
+  maxSpeed: 22
   forwardAccel: 8
   reverseAccel: 4
   turnStrength: 180
@@ -15863,6 +15863,7 @@ MonoBehaviour:
   driftingFadeRate: 2
   nextCheckpoint: 0
   currentLap: 1
+  totalTime: 0
   lapTime: 0
   bestLapTime: 0
   isAI: 1
