@@ -59,10 +59,10 @@ Last but not least, we also want to simply have fun and enjoy the process of gam
 Please click on the links below to download the latest version of the game.
 
 - For better performance on your specific platform:
-	- Mac users: click [here]()
-	- Windows users: click [here]()
+	- Mac users: click [here](https://drive.google.com/drive/folders/1h9-h0uh8UZ5bq90Gv3nQErLfIXctVdek?usp=sharing)
+	- Windows users: click [here](https://drive.google.com/drive/folders/1r80cXKP16si9tXdl1X0eXbkcgrSTj3pZ?usp=sharing)
 - Otherwise:
-	- WebGL build: click [here]()
+	- WebGL build: click [here](https://drive.google.com/drive/folders/1JvPVniLK8zqF257RVwJW76yOnWfyawao?usp=sharing)
 
 ### Game Controls ⌨️
 
@@ -95,7 +95,7 @@ Below are the common user-end bugs and issues and their respective remedies:
 	> Have you tried toggling the mute button 🔇? Unity Play will start on mute by default.
 
 ### Feedback 📋
-Regardless whether you are a player / user or a fellow developer, all are welcomed to send in your feedback through our [Microsoft Form](https://forms.office.com/r/bgJ8YXqMry)!
+Regardless whether you are a player / user or a fellow developer, all are welcomed to send in your feedback through our [Microsoft Form](https://forms.office.com/Pages/ResponsePage.aspx?id=Xu-lWwkxd06Fvc_rDTR-ggEWqGDMWqRAhCnc8WJTkTdUQzdLWlhWRUwxMFVPNTJKRjhUTFkxUTRQTy4u)!
 
 ## Deliverables and Publications 📰
 
@@ -116,8 +116,9 @@ Regardless whether you are a player / user or a fellow developer, all are welcom
 
 ### Milestone III 🎯
 - README: click [here](https://docs.google.com/document/d/1W_IndlNVo6aEFQ42cPw6e8EyzmfCK2zPy8nlv-93GL0/edit?usp=sharing)
-- Video: click here
-- Animated poster: click here
+- Video: click [here](https://drive.google.com/file/d/1EZprIz-77uumVl8Mtz2Jz2GDv3LgH5On/view?usp=sharing)
+- Project poster: click [here](https://drive.google.com/file/d/1IWyXzr6-RT-yhc0_RVsMQn3jB8ChBgnl/view?usp=sharing)
+- Project release: click [here](https://drive.google.com/drive/folders/1h9-h0uh8UZ5bq90Gv3nQErLfIXctVdek?usp=sharing) for macOS, [here](https://drive.google.com/drive/folders/1r80cXKP16si9tXdl1X0eXbkcgrSTj3pZ?usp=sharing) for Windows
 
 ### Splashdown 🪂
 
