@@ -59,10 +59,10 @@ Last but not least, we also want to simply have fun and enjoy the process of gam
 Please click on the links below to download the latest version of the game.
 
 - For better performance on your specific platform:
-	- Mac users: click [here](https://drive.google.com/file/d/13Gx6UAcUUkhKaG6pJLCwwThExhBbucy4/view?usp=sharing)
-	- Windows users: click [here](https://drive.google.com/file/d/1BquNjua7uGiqjWi9LM8Sbtq6ckVE3Lnr/view?usp=sharing)
+	- Mac users: click [here](https://drive.google.com/drive/folders/1h9-h0uh8UZ5bq90Gv3nQErLfIXctVdek?usp=sharing)
+	- Windows users: click [here](https://drive.google.com/drive/folders/1r80cXKP16si9tXdl1X0eXbkcgrSTj3pZ?usp=sharing)
 - Otherwise:
-	- WebGL build: click [here](https://drive.google.com/file/d/1tiaFt5Pssn1x1fbAAbO8Ga3Wabf4ROnh/view?usp=sharing)
+	- WebGL build: click [here](https://drive.google.com/drive/folders/1JvPVniLK8zqF257RVwJW76yOnWfyawao?usp=sharing)
 
 ### Game Controls ⌨️
 
@@ -95,7 +95,7 @@ Below are the common user-end bugs and issues and their respective remedies:
 	> Have you tried toggling the mute button 🔇? Unity Play will start on mute by default.
 
 ### Feedback 📋
-Regardless whether you are a player / user or a fellow developer, all are welcomed to send in your feedback through our [Microsoft Form](https://forms.office.com/r/bgJ8YXqMry)!
+Regardless whether you are a player / user or a fellow developer, all are welcomed to send in your feedback through our [Microsoft Form](https://forms.office.com/Pages/ResponsePage.aspx?id=Xu-lWwkxd06Fvc_rDTR-ggEWqGDMWqRAhCnc8WJTkTdUQzdLWlhWRUwxMFVPNTJKRjhUTFkxUTRQTy4u)!
 
 ## Deliverables and Publications 📰
 
