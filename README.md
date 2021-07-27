@@ -102,17 +102,17 @@ Regardless whether you are a player / user or a fellow developer, all are welcom
 ### Lift-Off 🚀 
 - Proposal: click [here](https://drive.google.com/file/d/1KJE18vKNbKHPti8ZO-8X5pBRpJO8GyGg/view?usp=sharing)
 - Video: click [here](https://drive.google.com/file/d/1Ess_AoRUsvmsphze_W3gN9Rnn3d7OoR-/view?usp=sharing)
-- Animated poster: click [here](https://drive.google.com/file/d/1Z_e2z-F6Wz_1z7LOtkqhgDTF2h-ZPelG/view?usp=sharing)
+- Animated Poster: click [here](https://drive.google.com/file/d/1Z_e2z-F6Wz_1z7LOtkqhgDTF2h-ZPelG/view?usp=sharing)
 
 ### Milestone I 🎯
 - README: click [here](https://docs.google.com/document/d/1TvUPG0FzB_TyE7rSZXGbYMn0IOMjJUVwukdFs2zciyM/edit?usp=sharing)
-- Project release: click [here](https://play.unity.com/mg/other/cyberacer-v0-0-1)
+- Project Release: click [here](https://play.unity.com/mg/other/cyberacer-v0-0-1)
 
 ### Milestone II 🎯
 - README: click [here](https://docs.google.com/document/d/187S19kQoqnzhw6M8xGJxqwMgSFixD4pG_xijABVVxf0/edit?usp=sharing)
 - Video: click [here](https://drive.google.com/file/d/1vjdiDpeub-Yg4oDxSfu7QIlX-GY4w_ZA/view?usp=sharing)
-- Animated poster: click [here](https://drive.google.com/file/d/12Ss0qi1S1gH5QIIM3SZxA4VffB8ScMun/view?usp=sharing)
-- Project release: click [here](https://play.unity.com/mg/other/cyberacer-v0-2-5)
+- Animated Poster: click [here](https://drive.google.com/file/d/12Ss0qi1S1gH5QIIM3SZxA4VffB8ScMun/view?usp=sharing)
+- Project Release: click [here](https://play.unity.com/mg/other/cyberacer-v0-2-5)
 
 ### Milestone III 🎯
 - README: click [here](https://docs.google.com/document/d/1W_IndlNVo6aEFQ42cPw6e8EyzmfCK2zPy8nlv-93GL0/edit?usp=sharing)
