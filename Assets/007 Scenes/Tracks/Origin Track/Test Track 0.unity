@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43595704, g: 0.47411525, b: 0.51357865, a: 1}
+  m_IndirectSpecularColor: {r: 0.4359568, g: 0.4741155, b: 0.5135788, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -553,7 +553,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allCheckpoints:
   - {fileID: 260383255}
-  totalLaps: 0
+  totalLaps: 1000
   playerCar: {fileID: 0}
   allAICars:
   - {fileID: 5210787747965840098, guid: 3decfdeb41e8c9f4fbd42f766d0aff63, type: 3}
@@ -572,7 +572,8 @@ MonoBehaviour:
   timeBetweenPositionCheck: 0.2
   aiDefaultSpeed: 0
   playerDefaultSpeed: 30
-  rubberBandSpeedMod: 3.5
+  favourAISpeedMod: 1.2
+  favourPlayerSppedMod: 2
   rubberBandAccel: 0.5
   isStarting: 0
   timeBetweenStartCount: 1
