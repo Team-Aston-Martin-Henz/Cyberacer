@@ -1,8 +1,0 @@
-
-Demo videos used in promo here:
-https://drive.google.com/drive/folders/148sMoswt_ah1HErS0EZTXJDG60X2vfP7?usp=sharing
-
-Just download them (~80MB), paste anywhere in your project,
-and
-assign specific video to video player slot.
-(every street monitor screens and big screen already contains ready video player).
